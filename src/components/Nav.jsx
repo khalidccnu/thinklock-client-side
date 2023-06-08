@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { FaBars, FaTimesCircle } from "react-icons/fa";
+import useAuth from "../hooks/useAuth.js";
 
 const Nav = () => {
+  const { loading, userInfo } = useAuth();
   const [hbMenu, setHbMenu] = useState(true);
   const [sm, setSM] = useState(true);
   const collapseHbMenu = useRef();
@@ -92,10 +94,25 @@ const Nav = () => {
                     Course
                   </NavLink>
                 </li>
+                {userInfo ? (
+                  <li>
+                    <NavLink
+                      to="/dashboard"
+                      className={({ isActive }) =>
+                        "p-2 rounded transition-colors duration-500 " +
+                        (isActive
+                          ? "bg-pink-600 text-white"
+                          : "hover:bg-pink-600 hover:text-white")
+                      }
+                    >
+                      Dashboard
+                    </NavLink>
+                  </li>
+                ) : null}
               </ul>
             ) : (
               <span
-                className="ml-5 text-[#e87425] hover:text-pink-600 cursor-pointer"
+                className="sm:hidden ml-5 text-[#e87425] hover:text-pink-600 cursor-pointer"
                 onClick={(_) => setHbMenu(!hbMenu)}
               >
                 {hbMenu ? (
@@ -105,13 +122,21 @@ const Nav = () => {
                 )}
               </span>
             )}
-            {location.pathname !== "/login" ? (
-              <button
-                className="btn btn-xs btn-outline text-pink-600 border-pink-600 min-w-[8rem] hover:bg-pink-600 hover:border-pink-600 transition-colors duration-500"
-                onClick={(_) => navigate("/login")}
-              >
-                Log In
-              </button>
+            {!loading ? (
+              location.pathname !== "/login" && !userInfo ? (
+                <button
+                  className="btn btn-xs btn-outline text-pink-600 border-pink-600 min-w-[8rem] hover:bg-pink-600 hover:border-pink-600 transition-colors duration-500"
+                  onClick={(_) => navigate("/login")}
+                >
+                  Log In
+                </button>
+              ) : location.pathname !== "/dashboard" && userInfo ? (
+                <div className="avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={userInfo.photoURL} alt="" />
+                  </div>
+                </div>
+              ) : null
             ) : null}
           </div>
         </div>
@@ -121,7 +146,7 @@ const Nav = () => {
               hbMenu ? "-top-52 max-h-0" : "top-12 max-h-96"
             } left-0 w-full overflow-hidden transition-[max-height] duration-500`}
           >
-            <ul className="flex flex-col bg-sky-50 px-6 pt-8 pb-3 space-y-3">
+            <ul className="flex flex-col bg-sky-50 px-6 pt-8 pb-5 space-y-3">
               <li>
                 <NavLink
                   to="/"
@@ -161,6 +186,21 @@ const Nav = () => {
                   Course
                 </NavLink>
               </li>
+              {userInfo ? (
+                <li>
+                  <NavLink
+                    to="/dashboard"
+                    className={({ isActive }) =>
+                      "nav-link block px-2 py-1 rounded transition-colors duration-500 " +
+                      (isActive
+                        ? "bg-pink-600 text-white"
+                        : "hover:bg-pink-600 hover:text-white")
+                    }
+                  >
+                    Dashboard
+                  </NavLink>
+                </li>
+              ) : null}
             </ul>
           </div>
         ) : null}

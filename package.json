@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.29.12",
     "axios": "^1.4.0",
     "firebase": "^9.22.1",
     "imagekitio-react": "^2.0.0",

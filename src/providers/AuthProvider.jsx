@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import useAxiosSecure from "../hooks/useAxiosSecure.js";
+import useAxiosIns from "../hooks/useAxiosIns.js";
 import {
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -15,10 +15,10 @@ export const AuthContext = createContext({});
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [userInfo, setUserInfo] = useState(null);
-  const axiosSecure = useAxiosSecure();
+  const axiosIns = useAxiosIns();
 
   const createUser = (userId, phone, gender, role) =>
-    axiosSecure.post(`/users`, { _id: userId, phone, gender, role });
+    axiosIns.post(`/users`, { _id: userId, phone, gender, role });
 
   const signInWithEP = (email, password) => {
     setLoading(true);
@@ -72,13 +72,14 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const authChange = onAuthStateChanged(auth, (userCred) => {
+    const authChange = onAuthStateChanged(auth, async (userCred) => {
       if (userCred) {
         setUserInfo(userCred);
 
-        axiosSecure
+        await axiosIns
           .post(`/jwt`, { _id: userCred.uid })
-          .then((response) => localStorage.setItem("_at", response.data));
+          .then((response) => localStorage.setItem("_at", response.data))
+          .then((_) => sessionStorage.setItem("_vu", JSON.stringify(true)));
       } else {
         setUserInfo(null);
         localStorage.removeItem("_at");
