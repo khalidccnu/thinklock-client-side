@@ -1,7 +1,10 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+import AuthProvider from "./providers/AuthProvider.jsx";
 import Root from "./Root.jsx";
 import Home from "./pages/Home.jsx";
+import Login from "./pages/Login.jsx";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -13,11 +16,21 @@ const App = () => {
           path: "/",
           element: <Home />,
         },
+        {
+          path: "/login",
+          element: <Login />,
+        },
       ],
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <HelmetProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </HelmetProvider>
+  );
 };
 
 export default App;

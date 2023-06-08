@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { FaBars, FaTimesCircle } from "react-icons/fa";
 
 const Nav = () => {
   const [hbMenu, setHbMenu] = useState(true);
   const [sm, setSM] = useState(true);
   const collapseHbMenu = useRef();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleResize = (_) => {
     if (innerWidth >= 640) {
@@ -103,9 +105,14 @@ const Nav = () => {
                 )}
               </span>
             )}
-            <button className="btn btn-xs btn-outline text-pink-600 border-pink-600 min-w-[8rem] hover:bg-pink-600 hover:border-pink-600 transition-colors duration-500">
-              Log In
-            </button>
+            {location.pathname !== "/login" ? (
+              <button
+                className="btn btn-xs btn-outline text-pink-600 border-pink-600 min-w-[8rem] hover:bg-pink-600 hover:border-pink-600 transition-colors duration-500"
+                onClick={(_) => navigate("/login")}
+              >
+                Log In
+              </button>
+            ) : null}
           </div>
         </div>
         {sm ? (

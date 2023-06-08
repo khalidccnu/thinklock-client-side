@@ -29,7 +29,7 @@ const HomeSlider = () => {
                 </h1>
                 <button
                   className="btn btn-xs sm:btn-sm min-w-[8rem]"
-                  onClick={(_) => navigate("/signup")}
+                  onClick={(_) => navigate("/login?signup=true")}
                 >
                   Sign Up
                 </button>
