@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import useUser from "../hooks/useUser.js";
 import useAuth from "../hooks/useAuth.js";
@@ -19,13 +19,13 @@ const Dashboard = () => {
       .then((_) => navigate("/login"));
 
   return (
-    <section>
+    <section className="pt-28 pb-8">
       <Helmet>
         <title>{displayName} - ThinkLock</title>
       </Helmet>
       <div className="container">
         <div className="flex">
-          <div className="bg-white w-72 pt-28 pb-8 px-5 -ml-6">
+          <div className="bg-white w-72 p-5 -ml-6">
             <figure className="w-20 h-20 rounded-full mx-auto overflow-hidden">
               <img src={photoURL} alt="" />
             </figure>
@@ -50,6 +50,7 @@ const Dashboard = () => {
               </li>
             </ul>
           </div>
+          <Outlet />
         </div>
       </div>
     </section>
