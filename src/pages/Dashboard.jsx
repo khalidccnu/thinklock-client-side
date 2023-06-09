@@ -36,9 +36,9 @@ const Dashboard = () => {
                   <StudentSidebarLinks />
                 ) : user.role === "instructor" ? (
                   <InstructorSidebarLinks />
-                ) : (
+                ) : user.role === "admin" ? (
                   <AdminSidebarLinks />
-                )
+                ) : null
               ) : null}
               <li>
                 <span

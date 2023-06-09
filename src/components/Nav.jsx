@@ -133,7 +133,11 @@ const Nav = () => {
               ) : location.pathname !== "/dashboard" && userInfo ? (
                 <div className="avatar">
                   <div className="w-10 rounded-full">
-                    <img src={userInfo.photoURL} alt="" />
+                    <img
+                      src={userInfo.photoURL}
+                      alt=""
+                      referrerPolicy="no-referrer"
+                    />
                   </div>
                 </div>
               ) : null

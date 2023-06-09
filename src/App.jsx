@@ -8,6 +8,7 @@ import PrivateRoute from "./routes/PrivateRoute.jsx";
 import Root from "./Root.jsx";
 import Error from "./pages/Error.jsx";
 import Home from "./pages/Home.jsx";
+import Instructor from "./pages/Instructor.jsx";
 import Course from "./pages/Course.jsx";
 import Login from "./pages/Login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
@@ -26,6 +27,10 @@ const App = () => {
         {
           path: "/",
           element: <Home />,
+        },
+        {
+          path: "instructor",
+          element: <Instructor />,
         },
         {
           path: "course",

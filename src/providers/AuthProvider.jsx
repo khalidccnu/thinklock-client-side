@@ -17,8 +17,16 @@ const AuthProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState(null);
   const axiosIns = useAxiosIns();
 
-  const createUser = (userId, phone, gender, role) =>
-    axiosIns.post(`/users`, { _id: userId, phone, gender, role });
+  const createUser = (userId, email, name, phone, gender, role, photo) =>
+    axiosIns.post(`/users`, {
+      _id: userId,
+      email,
+      name,
+      phone,
+      gender,
+      role,
+      photo,
+    });
 
   const signInWithEP = (email, password) => {
     setLoading(true);
@@ -30,7 +38,14 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
 
     return signInWithPopup(auth, googleProvider).then((userCred) =>
-      createUser(userCred.user.uid, ...Array(2), "student")
+      createUser(
+        userCred.user.uid,
+        userCred.user.email,
+        userCred.user.displayName,
+        ...Array(2),
+        "student",
+        userCred.user.photoURL
+      )
     );
   };
 
@@ -49,7 +64,9 @@ const AuthProvider = ({ children }) => {
       auth,
       email,
       password
-    ).then((userCred) => createUser(userCred.user.uid, phone, gender, role));
+    ).then((userCred) =>
+      createUser(userCred.user.uid, email, name, phone, gender, role, photo)
+    );
 
     await updateProfile(auth.currentUser, {
       displayName: name,

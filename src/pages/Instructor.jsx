@@ -1,22 +1,22 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosIns from "../hooks/useAxiosIns.js";
-import CourseCard from "../components/CourseCard.jsx";
+import InstructorCard from "../components/InstructorCard.jsx";
 
-const Course = () => {
+const Instructor = () => {
   const axiosIns = useAxiosIns();
 
-  const { data: courses } = useQuery({
-    queryKey: ["courses.data"],
-    queryFn: (_) => axiosIns(`/courses`),
+  const { data: instructors } = useQuery({
+    queryKey: ["instructors.data"],
+    queryFn: (_) => axiosIns(`/instructors`),
   });
 
   return (
     <section className="pt-28 pb-8">
       <div className="container">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7">
-          {courses?.data.map((course) => (
-            <CourseCard key={course._id} course={course} />
+          {instructors?.data.map((instructor) => (
+            <InstructorCard key={instructor._id} instructor={instructor} />
           ))}
         </div>
       </div>
@@ -24,4 +24,4 @@ const Course = () => {
   );
 };
 
-export default Course;
+export default Instructor;

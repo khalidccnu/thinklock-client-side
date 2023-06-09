@@ -4,7 +4,7 @@ import { BiDollarCircle } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
 import { GrStatusInfo } from "react-icons/gr";
 
-const Card = ({ course }) => {
+const CourseCard = ({ course }) => {
   const navigate = useNavigate();
   const { _id: id, name, price, seat, status, image } = course;
 
@@ -50,4 +50,4 @@ const Card = ({ course }) => {
   );
 };
 
-export default Card;
+export default CourseCard;
