@@ -24,8 +24,8 @@ const Dashboard = () => {
         <title>{displayName} - ThinkLock</title>
       </Helmet>
       <div className="container">
-        <div className="flex">
-          <div className="bg-white w-72 p-5 -ml-6">
+        <div className="grid grid-cols-[18rem_auto] gap-10">
+          <div className="bg-white p-5 -ml-6">
             <figure className="w-20 h-20 rounded-full mx-auto overflow-hidden">
               <img src={photoURL} alt="" />
             </figure>
