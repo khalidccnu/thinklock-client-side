@@ -1,13 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import useUser from "../hooks/useUser.js";
 import useAuth from "../hooks/useAuth.js";
 import StudentSidebarLinks from "../components/StudentSidebarLinks.jsx";
+import InstructorSidebarLinks from "../components/InstructorSidebarLinks.jsx";
+import AdminSidebarLinks from "../components/AdminSidebarLinks.jsx";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [isUserLoading, user] = useUser();
-  const { userInfo } = useAuth();
+  const { userInfo, logOut } = useAuth();
   const { displayName, photoURL } = userInfo;
+
+  const handleLogout = (_) =>
+    logOut()
+      .then((_) => sessionStorage.removeItem("_vu"))
+      .then((_) => navigate("/login"));
 
   return (
     <section>
@@ -25,8 +34,20 @@ const Dashboard = () => {
               {!isUserLoading ? (
                 user.role === "student" ? (
                   <StudentSidebarLinks />
-                ) : null
+                ) : user.role === "instructor" ? (
+                  <InstructorSidebarLinks />
+                ) : (
+                  <AdminSidebarLinks />
+                )
               ) : null}
+              <li>
+                <span
+                  className="block px-2 py-1 rounded hover:bg-pink-600 hover:text-white cursor-pointer transition-colors duration-500"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </span>
+              </li>
             </ul>
           </div>
         </div>

@@ -1,12 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const StudentSidebarLinks = () => {
+const InstructorSidebarLinks = () => {
   return (
     <>
       <li>
         <NavLink
-          to="/booked-course"
+          to="/new-course"
           className={({ isActive }) =>
             "block px-2 py-1 rounded transition-colors duration-500 " +
             (isActive
@@ -14,12 +14,12 @@ const StudentSidebarLinks = () => {
               : "hover:bg-pink-600 hover:text-white")
           }
         >
-          Booked Course
+          New Course
         </NavLink>
       </li>
       <li>
         <NavLink
-          to="/enrolled-course"
+          to="/my-course"
           className={({ isActive }) =>
             "block px-2 py-1 rounded transition-colors duration-500 " +
             (isActive
@@ -27,24 +27,11 @@ const StudentSidebarLinks = () => {
               : "hover:bg-pink-600 hover:text-white")
           }
         >
-          Enrolled Course
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/payment-history"
-          className={({ isActive }) =>
-            "block px-2 py-1 rounded transition-colors duration-500 " +
-            (isActive
-              ? "bg-pink-600 text-white"
-              : "hover:bg-pink-600 hover:text-white")
-          }
-        >
-          Payment History
+          My Course
         </NavLink>
       </li>
     </>
   );
 };
 
-export default StudentSidebarLinks;
+export default InstructorSidebarLinks;
