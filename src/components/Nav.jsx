@@ -130,7 +130,7 @@ const Nav = () => {
                 >
                   Log In
                 </button>
-              ) : location.pathname !== "/dashboard" && userInfo ? (
+              ) : !location.pathname.includes("/dashboard") && userInfo ? (
                 <div className="avatar">
                   <div className="w-10 rounded-full">
                     <img

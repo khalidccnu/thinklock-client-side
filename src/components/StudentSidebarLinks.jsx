@@ -6,7 +6,7 @@ const StudentSidebarLinks = () => {
     <>
       <li>
         <NavLink
-          to="/booked-course"
+          to="booked-course"
           className={({ isActive }) =>
             "block px-2 py-1 rounded transition-colors duration-500 " +
             (isActive
@@ -19,7 +19,7 @@ const StudentSidebarLinks = () => {
       </li>
       <li>
         <NavLink
-          to="/enrolled-course"
+          to="enrolled-course"
           className={({ isActive }) =>
             "block px-2 py-1 rounded transition-colors duration-500 " +
             (isActive
@@ -32,7 +32,7 @@ const StudentSidebarLinks = () => {
       </li>
       <li>
         <NavLink
-          to="/payment-history"
+          to="payment-history"
           className={({ isActive }) =>
             "block px-2 py-1 rounded transition-colors duration-500 " +
             (isActive
