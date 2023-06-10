@@ -6,7 +6,7 @@ const AdminSidebarLinks = () => {
     <>
       <li>
         <NavLink
-          to="/manage-course"
+          to="manage-course"
           className={({ isActive }) =>
             "block px-2 py-1 rounded transition-colors duration-500 " +
             (isActive
@@ -19,7 +19,7 @@ const AdminSidebarLinks = () => {
       </li>
       <li>
         <NavLink
-          to="/manage-user"
+          to="manage-user"
           className={({ isActive }) =>
             "block px-2 py-1 rounded transition-colors duration-500 " +
             (isActive

@@ -14,6 +14,7 @@ import Login from "./pages/Login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import NewCourse from "./pages/instructor/NewCourse.jsx";
 import MyCourse from "./pages/instructor/MyCourse.jsx";
+import ManageCourse from "./pages/admin/ManageCourse.jsx";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,10 @@ const App = () => {
             {
               path: "my-course",
               element: <MyCourse />,
+            },
+            {
+              path: "manage-course",
+              element: <ManageCourse />,
             },
           ],
         },
