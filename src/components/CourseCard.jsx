@@ -1,12 +1,34 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { BiDollarCircle } from "react-icons/bi";
-import { FaUser } from "react-icons/fa";
+import { FaBookmark, FaRegBookmark, FaUser } from "react-icons/fa";
 import { GrStatusInfo } from "react-icons/gr";
+import useUser from "../hooks/useUser.js";
+import useAxiosSecure from "../hooks/useAxiosSecure.js";
 
-const CourseCard = ({ course }) => {
-  const navigate = useNavigate();
+const CourseCard = ({ handleBookCourse, course }) => {
   const { _id: id, name, price, seat, status, image } = course;
+  const [isBook, setBook] = useState(false);
+  const [isUserLoading, user] = useUser();
+  const axiosSecure = useAxiosSecure();
+
+  useEffect(
+    (_) => {
+      if (!isUserLoading && user.role === "student") {
+        axiosSecure(`/${user._id}/booked-courses`).then((response) => {
+          let bookedCourses = response.data?.courses;
+
+          if (bookedCourses) {
+            const exist = bookedCourses.find(
+              (bookedCourse) => bookedCourse === id
+            );
+
+            exist ? setBook(true) : null;
+          }
+        });
+      }
+    },
+    [isUserLoading]
+  );
 
   return (
     <div className="grid grid-cols-1 gap-y-4">
@@ -24,10 +46,18 @@ const CourseCard = ({ course }) => {
           ) : (
             <span className="flex justify-center items-center h-full">
               <button
-                className="btn btn-xs btn-outline px-5 py-2 text-pink-600 border-pink-600 hover:bg-pink-600 hover:border-pink-600 transition-colors duration-500 normal-case"
-                onClick={(_) => navigate("?view=" + id)}
+                className={`btn btn-xs btn-outline ${
+                  isBook || (user && user.role !== "student")
+                    ? "btn-disabled"
+                    : "text-pink-600 border-pink-600 hover:bg-pink-600 hover:border-pink-600"
+                } h-auto px-5 py-2 transition-colors duration-500 normal-case`}
+                onClick={(_) => {
+                  handleBookCourse(id);
+                  user ? setBook(true) : null;
+                }}
               >
-                View
+                {isBook ? <FaBookmark /> : <FaRegBookmark />}
+                <span className="mt-1 -ml-1">{isBook ? "Booked" : "Book"}</span>
               </button>
             </span>
           )}

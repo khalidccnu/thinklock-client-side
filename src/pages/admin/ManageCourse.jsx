@@ -9,8 +9,8 @@ import ManageCourseCard from "../../components/ManageCourseCard.jsx";
 const ManageCourse = () => {
   const { loading, userInfo } = useAuth();
   const [actionCourse, setActionCourse] = useState({});
-  let [isACMOpen, setACMOpen] = useState(false);
-  let [isDCMOpen, setDCMOpen] = useState(false);
+  const [isACMOpen, setACMOpen] = useState(false);
+  const [isDCMOpen, setDCMOpen] = useState(false);
   const axiosSecure = useAxiosSecure();
 
   const { refetch, data: courses } = useQuery({
