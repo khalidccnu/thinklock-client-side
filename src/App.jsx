@@ -15,6 +15,7 @@ import Course from "./pages/Course.jsx";
 import Login from "./pages/Login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import BookedCourse from "./pages/student/BookedCourse.jsx";
+import PaymentHistory from "./pages/student/PaymentHistory.jsx";
 import NewCourse from "./pages/instructor/NewCourse.jsx";
 import MyCourse from "./pages/instructor/MyCourse.jsx";
 import ManageCourse from "./pages/admin/ManageCourse.jsx";
@@ -61,6 +62,10 @@ const App = () => {
             {
               path: "booked-course",
               element: <BookedCourse />,
+            },
+            {
+              path: "payment-history",
+              element: <PaymentHistory />,
             },
             {
               path: "new-course",
