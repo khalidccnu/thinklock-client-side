@@ -30,7 +30,7 @@ const ManageUser = () => {
   );
 
   return (
-    <div className="grid grid-cols-3 gap-7">
+    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-7">
       {allUser?.map((user) => (
         <UserCard
           key={user._id}

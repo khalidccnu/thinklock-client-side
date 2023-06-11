@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { BsBookmarkFill, BsBookmarkStarFill } from "react-icons/bs";
+import { FaHistory } from "react-icons/fa";
 
 const StudentSidebarLinks = () => {
   return (
@@ -8,39 +10,42 @@ const StudentSidebarLinks = () => {
         <NavLink
           to="booked-course"
           className={({ isActive }) =>
-            "block px-2 py-1 rounded transition-colors duration-500 " +
+            "flex px-2 py-1 leading-5 gap-1 rounded transition-colors duration-500 " +
             (isActive
               ? "bg-pink-600 text-white"
               : "hover:bg-pink-600 hover:text-white")
           }
         >
-          Booked Course
+          <BsBookmarkStarFill />
+          <span>Booked Course</span>
         </NavLink>
       </li>
       <li>
         <NavLink
           to="enrolled-course"
           className={({ isActive }) =>
-            "block px-2 py-1 rounded transition-colors duration-500 " +
+            "flex px-2 py-1 leading-5 gap-1 rounded transition-colors duration-500 " +
             (isActive
               ? "bg-pink-600 text-white"
               : "hover:bg-pink-600 hover:text-white")
           }
         >
-          Enrolled Course
+          <BsBookmarkFill />
+          <span>Enrolled Course</span>
         </NavLink>
       </li>
       <li>
         <NavLink
           to="payment-history"
           className={({ isActive }) =>
-            "block px-2 py-1 rounded transition-colors duration-500 " +
+            "flex px-2 py-1 leading-5 gap-1 rounded transition-colors duration-500 " +
             (isActive
               ? "bg-pink-600 text-white"
               : "hover:bg-pink-600 hover:text-white")
           }
         >
-          Payment History
+          <FaHistory />
+          <span>Payment History</span>
         </NavLink>
       </li>
     </>

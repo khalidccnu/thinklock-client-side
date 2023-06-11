@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure.js";
 import useAuth from "../../hooks/useAuth.js";
@@ -26,7 +26,7 @@ const BookedCourse = () => {
   );
 
   return (
-    <div className="grid grid-cols-3 gap-7">
+    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-7">
       {bookedCourses.map((course) => (
         <CourseCard key={course._id} course={course} />
       ))}

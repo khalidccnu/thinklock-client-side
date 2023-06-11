@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { BiDollarCircle } from "react-icons/bi";
-import { FaBookmark, FaRegBookmark, FaUser } from "react-icons/fa";
+import { FaBookmark, FaEdit, FaRegBookmark, FaUser } from "react-icons/fa";
 import { GrStatusInfo } from "react-icons/gr";
 import useUser from "../hooks/useUser.js";
 import useAxiosSecure from "../hooks/useAxiosSecure.js";
 
 const CourseCard = ({ handleBookCourse, course }) => {
-  const { _id: id, name, price, seat, status, image } = course;
+  const { _id: id, instructor_id, name, price, seat, status, image } = course;
   const [isBook, setBook] = useState(false);
   const [isUserLoading, user] = useUser();
   const axiosSecure = useAxiosSecure();
+
+  const { data: instructor } = useQuery({
+    queryKey: [id, "instructor.data"],
+    queryFn: (_) => axiosSecure(`/instructors/${instructor_id}`),
+  });
 
   useEffect(
     (_) => {
@@ -78,6 +84,10 @@ const CourseCard = ({ handleBookCourse, course }) => {
               <span>{seat}</span>
             </span>
           </div>
+          <h5 className="inline-flex font-semibold leading-[1.2rem] mt-5 space-x-1">
+            <FaEdit />
+            <span>{instructor?.data.name}</span>
+          </h5>
         </div>
       </div>
     </div>

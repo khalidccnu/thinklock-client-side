@@ -45,9 +45,9 @@ const NewCourse = () => {
   };
 
   return (
-    <div className="w-full">
+    <div>
       <form
-        className="form-control w-fit mx-auto"
+        className="form-control max-w-sm sm:w-fit mx-auto"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="grid grid-cols-2 gap-3">
@@ -65,7 +65,7 @@ const NewCourse = () => {
               {...register("name")}
             />
           </div>
-          <div>
+          <div className="col-span-full sm:col-span-1">
             <label
               className="label label-text pl-0 pt-0 pb-0.5 font-bold text-gray-700"
               htmlFor="seat"
@@ -75,11 +75,11 @@ const NewCourse = () => {
             <input
               type="text"
               id="seat"
-              className="input input-sm input-bordered bg-white text-gray-700 rounded focus:outline-none"
+              className="input input-sm input-bordered w-full bg-white text-gray-700 rounded focus:outline-none"
               {...register("seat")}
             />
           </div>
-          <div>
+          <div className="col-span-full sm:col-span-1">
             <label
               className="label label-text pl-0 pt-0 pb-0.5 font-bold text-gray-700"
               htmlFor="price"
@@ -89,7 +89,7 @@ const NewCourse = () => {
             <input
               type="text"
               id="price"
-              className="input input-sm input-bordered bg-white text-gray-700 rounded focus:outline-none"
+              className="input input-sm input-bordered w-full bg-white text-gray-700 rounded focus:outline-none"
               {...register("price")}
             />
           </div>

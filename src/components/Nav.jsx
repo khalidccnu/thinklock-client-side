@@ -122,8 +122,8 @@ const Nav = () => {
                 )}
               </span>
             )}
-            {!loading ? (
-              location.pathname !== "/login" && !userInfo ? (
+            {!loading && location.pathname !== "/login" ? (
+              !userInfo ? (
                 <button
                   className="btn btn-xs btn-outline text-pink-600 border-pink-600 min-w-[8rem] hover:bg-pink-600 hover:border-pink-600 transition-colors duration-500"
                   onClick={(_) => navigate("/login")}

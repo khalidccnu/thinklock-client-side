@@ -30,7 +30,7 @@ const ManageCourse = () => {
   };
 
   return (
-    <div className="grid grid-cols-3 gap-7">
+    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-7">
       {courses?.data.map((course) => (
         <ManageCourseCard
           key={course._id}

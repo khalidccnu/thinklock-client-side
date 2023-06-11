@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Tabs, TabList, TabPanel, Tab } from "react-tabs";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import qs from "query-string";
 import { FaGoogle } from "react-icons/fa";
@@ -10,22 +11,11 @@ import Signup from "../components/Signup.jsx";
 
 const Login = () => {
   const { loading, setLoading, signInWithEP, signInWithGoogle } = useAuth();
-  const [input, setInput] = useState({
-    email: "",
-    password: "",
-  });
+  const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const [params] = useSearchParams();
   const location = useLocation();
   const fromURL = location.state?.fromURL.pathname;
-
-  const changeInput = ({ target }) => {
-    const { name, value } = target;
-
-    setInput((prev) => {
-      return { ...prev, [name]: value };
-    });
-  };
 
   const handleTab = (_) => {
     let query = {};
@@ -47,11 +37,10 @@ const Login = () => {
     navigate(url);
   };
 
-  const handleLoginWithEP = (e) => {
-    e.preventDefault();
-    const { email, password } = e.target;
+  const handleLoginWithEP = (data) => {
+    const { email, password } = data;
 
-    signInWithEP(email.value, password.value)
+    signInWithEP(email, password)
       .then((_) => navigate(fromURL || "/dashboard"))
       .catch((err) => {
         setLoading(false);
@@ -70,7 +59,7 @@ const Login = () => {
   };
 
   useEffect((_) => {
-    if (fromURL && !fromURL.includes("checkout"))
+    if (fromURL)
       toast.error(
         "Only registered user can access this page. Please, login first!"
       );
@@ -110,15 +99,13 @@ const Login = () => {
               </h3>
               <form
                 className="form-control mt-5 space-y-4"
-                onSubmit={handleLoginWithEP}
+                onSubmit={handleSubmit(handleLoginWithEP)}
               >
                 <div className="relative">
                   <input
                     type="email"
-                    name="email"
-                    value={input.email}
                     className="peer input input-sm input-bordered text-[#e87425] w-full px-3 py-5 rounded focus:outline-none focus:ring-2 focus:ring-[#e87425] valid:ring-2 valid:ring-[#e87425]"
-                    onChange={changeInput}
+                    {...register("email")}
                     required={true}
                   />
                   <label className="absolute top-0 left-0 ml-3 mt-2.5 text-gray-400 peer-focus:-translate-y-1/2 peer-focus:bg-[#e87425] peer-focus:text-white peer-focus:mt-0 peer-focus:px-2 peer-focus:rounded peer-valid:-translate-y-1/2 peer-valid:bg-[#e87425] peer-valid:text-white peer-valid:mt-0 peer-valid:px-2 peer-valid:rounded transition-all duration-300 pointer-events-none">
@@ -128,10 +115,8 @@ const Login = () => {
                 <div className="relative">
                   <input
                     type="password"
-                    name="password"
-                    value={input.password}
                     className="peer input input-sm input-bordered text-[#e87425] w-full px-3 py-5 rounded focus:outline-none focus:ring-2 focus:ring-[#e87425] valid:ring-2 valid:ring-[#e87425]"
-                    onChange={changeInput}
+                    {...register("password")}
                     required={true}
                   />
                   <label className="absolute top-0 left-0 ml-3 mt-2.5 text-gray-400 peer-focus:-translate-y-1/2 peer-focus:bg-[#e87425] peer-focus:text-white peer-focus:mt-0 peer-focus:px-2 peer-focus:rounded peer-valid:-translate-y-1/2 peer-valid:bg-[#e87425] peer-valid:text-white peer-valid:mt-0 peer-valid:px-2 peer-valid:rounded transition-all duration-300 pointer-events-none">
