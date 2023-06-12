@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import "react-tooltip/dist/react-tooltip.css";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import "./index.css";
 

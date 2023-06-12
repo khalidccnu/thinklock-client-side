@@ -29,6 +29,7 @@ const NewCourse = () => {
       instructor_id: userInfo.uid,
       name,
       seat: +seat,
+      purchase: 0,
       price: +price,
       status: "pending",
       image: image.url,
