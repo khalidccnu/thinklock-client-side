@@ -7,6 +7,9 @@ import { Elements as StripeElements } from "@stripe/react-stripe-js";
 import AuthProvider from "./providers/AuthProvider.jsx";
 import LogOffRoute from "./routes/LogOffRoute.jsx";
 import PrivateRoute from "./routes/PrivateRoute.jsx";
+import StudentRoute from "./routes/StudentRoute.jsx";
+import InstructorRoute from "./routes/InstructorRoute.jsx";
+import AdminRoute from "./routes/AdminRoute.jsx";
 import Root from "./Root.jsx";
 import Error from "./pages/Error.jsx";
 import Home from "./pages/Home.jsx";
@@ -67,31 +70,59 @@ const App = () => {
             },
             {
               path: "booked-course",
-              element: <BookedCourse />,
+              element: (
+                <StudentRoute>
+                  <BookedCourse />
+                </StudentRoute>
+              ),
             },
             {
               path: "enrolled-course",
-              element: <EnrolledCourse />,
+              element: (
+                <StudentRoute>
+                  <EnrolledCourse />
+                </StudentRoute>
+              ),
             },
             {
               path: "payment-history",
-              element: <PaymentHistory />,
+              element: (
+                <StudentRoute>
+                  <PaymentHistory />
+                </StudentRoute>
+              ),
             },
             {
               path: "new-course",
-              element: <NewCourse />,
+              element: (
+                <InstructorRoute>
+                  <NewCourse />
+                </InstructorRoute>
+              ),
             },
             {
               path: "my-course",
-              element: <MyCourse />,
+              element: (
+                <InstructorRoute>
+                  <MyCourse />
+                </InstructorRoute>
+              ),
             },
             {
               path: "manage-course",
-              element: <ManageCourse />,
+              element: (
+                <AdminRoute>
+                  <ManageCourse />
+                </AdminRoute>
+              ),
             },
             {
               path: "manage-user",
-              element: <ManageUser />,
+              element: (
+                <AdminRoute>
+                  <ManageUser />
+                </AdminRoute>
+              ),
             },
           ],
         },

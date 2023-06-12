@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useQuery } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 import { CgMenuLeft } from "react-icons/cg";
 import { FaAngleLeft, FaSignOutAlt } from "react-icons/fa";
 import useUser from "../hooks/useUser.js";
@@ -14,6 +15,7 @@ import InstructorSidebarLinks from "../components/InstructorSidebarLinks.jsx";
 import AdminSidebarLinks from "../components/AdminSidebarLinks.jsx";
 
 const Dashboard = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const [isLoading, setLoading] = useState(true);
   const [hbMenu, setHbMenu] = useState(true);
@@ -52,6 +54,19 @@ const Dashboard = () => {
       if (user?.role === "student") setLoading(false);
     },
     [user]
+  );
+
+  useEffect(
+    (_) => {
+      if (
+        location.state?.access === "rejected" &&
+        user?.role !== location.state?.mode
+      ) {
+        toast.error("You have no right access!");
+        location.state = null;
+      }
+    },
+    [location, user]
   );
 
   return (
