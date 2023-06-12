@@ -14,7 +14,9 @@ import Instructor from "./pages/Instructor.jsx";
 import Course from "./pages/Course.jsx";
 import Login from "./pages/Login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import DashboardRoot from "./components/DashboardRoot.jsx";
 import BookedCourse from "./pages/student/BookedCourse.jsx";
+import EnrolledCourse from "./pages/student/EnrolledCourse.jsx";
 import PaymentHistory from "./pages/student/PaymentHistory.jsx";
 import NewCourse from "./pages/instructor/NewCourse.jsx";
 import MyCourse from "./pages/instructor/MyCourse.jsx";
@@ -60,8 +62,16 @@ const App = () => {
           ),
           children: [
             {
+              path: "/dashboard",
+              element: <DashboardRoot />,
+            },
+            {
               path: "booked-course",
               element: <BookedCourse />,
+            },
+            {
+              path: "enrolled-course",
+              element: <EnrolledCourse />,
             },
             {
               path: "payment-history",

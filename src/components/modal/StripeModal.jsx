@@ -1,15 +1,19 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
+import { useLocation } from "react-router-dom";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { Dialog, Transition } from "@headlessui/react";
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth.js";
 import useAxiosSecure from "../../hooks/useAxiosSecure.js";
+import { PaidBalanceContext } from "../../providers/PaidBalanceProvider.jsx";
 
 const StripeModal = ({ isSMOpen, setSMOpen, paidBalance, paidRefetch }) => {
   const stripe = useStripe();
   const elements = useElements();
   const { userInfo } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const [fetchAll] = useContext(PaidBalanceContext);
+  const location = useLocation();
 
   const handleOrder = (_) => {
     axiosSecure
@@ -55,9 +59,30 @@ const StripeModal = ({ isSMOpen, setSMOpen, paidBalance, paidRefetch }) => {
               setSMOpen(false);
               toast.success("Payment has been successfully completed!");
 
-              axiosSecure
-                .delete(`/${userInfo.uid}/booked-courses`)
-                .then((_) => paidRefetch());
+              axiosSecure(`/${userInfo.uid}/booked-courses`).then(
+                (response) => {
+                  axiosSecure
+                    .put(`/${userInfo.uid}/courses`, response.data.courses)
+                    .then((_) =>
+                      axiosSecure
+                        .delete(`/${userInfo.uid}/booked-courses`)
+                        .then((_) => {
+                          paidRefetch();
+
+                          if (location.pathname.includes("/booked-course"))
+                            fetchAll.bcRefetch();
+                          else if (
+                            location.pathname.includes("/enrolled-course")
+                          )
+                            fetchAll.ecRefetch();
+                          else if (
+                            location.pathname.includes("/payment-history")
+                          )
+                            fetchAll.orRefetch();
+                        })
+                    );
+                }
+              );
             });
         }
       });

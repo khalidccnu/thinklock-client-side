@@ -24,13 +24,19 @@ const useAxiosSecure = () => {
     axiosSecure.interceptors.response.use(
       (res) => res,
       async (err) => {
-        await logOut()
-          .then((_) => sessionStorage.removeItem("_vu"))
-          .then((_) => navigate("/login"));
-
-        if (err.response.status === 401 || err.response.status === 403)
-          toast.error(err.response.data.message);
-        else toast.error("Something went wrong!");
+        if (
+          err.response &&
+          (err.response.status === 401 || err.response.status === 403)
+        ) {
+          await logOut()
+            .then((_) => sessionStorage.removeItem("_vu"))
+            .then((_) => {
+              navigate("/login");
+              toast.error(err.response.data.message);
+            });
+        } else {
+          toast.error("Something went wrong!");
+        }
 
         return Promise.reject(err);
       }

@@ -40,7 +40,7 @@ const ManageCourseCard = ({ handleApprove, handleDeny, course }) => {
             </span>
           </div>
           <div className="mt-5">
-            <h5 className="inline-flex leading-[1.2rem] space-x-1">
+            <h5 className="flex leading-[1.2rem] space-x-1">
               <FaEdit />
               <span>{instructor?.data.name}</span>
             </h5>

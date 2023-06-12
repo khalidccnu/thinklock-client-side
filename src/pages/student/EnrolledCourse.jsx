@@ -1,16 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../hooks/useAxiosSecure.js";
 import useAuth from "../../hooks/useAuth.js";
+import useUser from "../../hooks/useUser.js";
+import useAxiosSecure from "../../hooks/useAxiosSecure.js";
 import { PaidBalanceContext } from "../../providers/PaidBalanceProvider.jsx";
 import CourseCard from "../../components/CourseCard.jsx";
 
-const BookedCourse = () => {
+const EnrolledCourse = () => {
   const [isLoading, setLoading] = useState(true);
   const [, setFetchAll] = useContext(PaidBalanceContext);
   const { loading, userInfo } = useAuth();
+  const [, user] = useUser();
   const axiosSecure = useAxiosSecure();
-  const [bookedCourses, setBookedCourses] = useState([]);
+  const [enrolledCourses, setEnrolledCourses] = useState([]);
 
   const { data: courses, refetch } = useQuery({
     queryKey: [userInfo, "courses.data"],
@@ -22,13 +24,13 @@ const BookedCourse = () => {
     (_) => {
       if (courses) {
         setFetchAll((prev) => {
-          return { ...prev, bcRefetch: refetch };
+          return { ...prev, ecRefetch: refetch };
         });
 
         axiosSecure
-          .post(`/${userInfo.uid}/booked-courses`, courses.data.courses)
+          .post(`/${userInfo.uid}/enrolled-courses`, user?.courses)
           .then((response) => {
-            setBookedCourses(response.data);
+            setEnrolledCourses(response.data);
             setLoading(false);
           });
       }
@@ -37,9 +39,9 @@ const BookedCourse = () => {
   );
 
   return !isLoading ? (
-    bookedCourses.length ? (
+    enrolledCourses.length ? (
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-7">
-        {bookedCourses.map((course) => (
+        {enrolledCourses.map((course) => (
           <CourseCard key={course._id} course={course} />
         ))}
       </div>
@@ -58,10 +60,10 @@ const BookedCourse = () => {
             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
           ></path>
         </svg>
-        <span>You did not book any course yet!</span>
+        <span>You did not enroll any course yet!</span>
       </div>
     )
   ) : null;
 };
 
-export default BookedCourse;
+export default EnrolledCourse;

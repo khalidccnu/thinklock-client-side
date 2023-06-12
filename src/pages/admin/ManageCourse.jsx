@@ -13,7 +13,11 @@ const ManageCourse = () => {
   const [isDCMOpen, setDCMOpen] = useState(false);
   const axiosSecure = useAxiosSecure();
 
-  const { refetch, data: courses } = useQuery({
+  const {
+    isLoading,
+    data: courses,
+    refetch,
+  } = useQuery({
     queryKey: [userInfo.uid, "courses.data"],
     enabled: !loading,
     queryFn: (_) => axiosSecure(`/admin/courses`),
@@ -29,30 +33,49 @@ const ManageCourse = () => {
     setDCMOpen(true);
   };
 
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-7">
-      {courses?.data.map((course) => (
-        <ManageCourseCard
-          key={course._id}
-          handleApprove={handleApprove}
-          handleDeny={handleDeny}
-          course={course}
+  return !isLoading ? (
+    courses.data.length ? (
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-7">
+        {courses.data.map((course) => (
+          <ManageCourseCard
+            key={course._id}
+            handleApprove={handleApprove}
+            handleDeny={handleDeny}
+            course={course}
+          />
+        ))}
+        <ApproveCourseModal
+          isACMOpen={isACMOpen}
+          setACMOpen={setACMOpen}
+          refetch={refetch}
+          actionCourse={actionCourse}
         />
-      ))}
-      <ApproveCourseModal
-        isACMOpen={isACMOpen}
-        setACMOpen={setACMOpen}
-        refetch={refetch}
-        actionCourse={actionCourse}
-      />
-      <DenyCourseModal
-        isDCMOpen={isDCMOpen}
-        setDCMOpen={setDCMOpen}
-        refetch={refetch}
-        actionCourse={actionCourse}
-      />
-    </div>
-  );
+        <DenyCourseModal
+          isDCMOpen={isDCMOpen}
+          setDCMOpen={setDCMOpen}
+          refetch={refetch}
+          actionCourse={actionCourse}
+        />
+      </div>
+    ) : (
+      <div className="alert max-w-sm mx-auto">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          className="stroke-info shrink-0 w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          ></path>
+        </svg>
+        <span>There is no course to manage!</span>
+      </div>
+    )
+  ) : null;
 };
 
 export default ManageCourse;
