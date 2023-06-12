@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { BiDollarCircle } from "react-icons/bi";
 import { BsBookmarkStarFill } from "react-icons/bs";
@@ -9,7 +9,13 @@ import { GrStatusInfo } from "react-icons/gr";
 import useUser from "../hooks/useUser.js";
 import useAxiosSecure from "../hooks/useAxiosSecure.js";
 
-const CourseCard = ({ setFMOpen, setFeedback, handleBookCourse, course }) => {
+const CourseCard = ({
+  setFMOpen,
+  setFeedback,
+  setEditMode,
+  handleBookCourse,
+  course,
+}) => {
   const {
     _id: id,
     instructor_id,
@@ -22,6 +28,7 @@ const CourseCard = ({ setFMOpen, setFeedback, handleBookCourse, course }) => {
     image,
   } = course;
   const location = useLocation();
+  const navigate = useNavigate();
   const [isBook, setBook] = useState(false);
   const [isUserLoading, user] = useUser();
   const axiosSecure = useAxiosSecure();
@@ -133,10 +140,20 @@ const CourseCard = ({ setFMOpen, setFeedback, handleBookCourse, course }) => {
               <span>{(purchase || 0) + "/" + seat}</span>
             </span>
           </div>
-          <h5 className="inline-flex font-semibold leading-[1.2rem] mt-5 space-x-1">
-            <FaEdit />
-            <span>{instructor?.data.name}</span>
-          </h5>
+          <div className="flex items-center justify-between mt-5">
+            <h5 className="inline-flex font-semibold leading-[1.2rem] space-x-1">
+              <FaEdit />
+              <span>{instructor?.data.name}</span>
+            </h5>
+            {location.pathname.includes("my-course") ? (
+              <button
+                className="btn btn-sm rounded-lg"
+                onClick={(_) => navigate("?edit=" + id)}
+              >
+                Edit
+              </button>
+            ) : null}
+          </div>
         </div>
       </div>
     </div>
