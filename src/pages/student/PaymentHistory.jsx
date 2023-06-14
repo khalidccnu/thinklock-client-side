@@ -16,7 +16,7 @@ const PaymentHistory = () => {
   } = useQuery({
     queryKey: [userInfo, "orders.data"],
     enabled: !loading,
-    queryFn: (_) => axiosSecure(`/${userInfo.uid}/orders`),
+    queryFn: (_) => axiosSecure(`/student/${userInfo.uid}/orders`),
   });
 
   useEffect(

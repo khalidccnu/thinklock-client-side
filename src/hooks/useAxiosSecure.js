@@ -12,36 +12,40 @@ const useAxiosSecure = () => {
   const { logOut } = useAuth();
   const navigate = useNavigate();
 
-  useEffect((_) => {
-    axiosSecure.interceptors.request.use((req) => {
-      const token = localStorage.getItem("_at");
+  useEffect(
+    (_) => {
+      axiosSecure.interceptors.request.use((config) => {
+        const token = localStorage.getItem("_at");
 
-      if (token) req.headers.Authorization = `Bearer ${token}`;
+        if (token) config.headers.Authorization = `Bearer ${token}`;
 
-      return req;
-    });
+        return config;
+      });
 
-    axiosSecure.interceptors.response.use(
-      (res) => res,
-      async (err) => {
-        if (
-          err.response &&
-          (err.response.status === 401 || err.response.status === 403)
-        ) {
-          await logOut()
-            .then((_) => sessionStorage.removeItem("_vu"))
-            .then((_) => {
-              navigate("/login");
-              toast.error(err.response.data.message);
-            });
-        } else {
-          toast.error("Something went wrong!");
+      axiosSecure.interceptors.response.use(
+        (res) => res,
+        async (err) => {
+          if (
+            err.config &&
+            !err.config.isRetryRequest &&
+            err.response &&
+            [401, 403].includes(err.response.status)
+          ) {
+            await logOut()
+              .then((_) => sessionStorage.removeItem("_vu"))
+              .then((_) => {
+                navigate("/login");
+                err.config.isRetryRequest = true;
+                toast.error(err.response.data.message);
+              });
+          }
+
+          return Promise.reject(err);
         }
-
-        return Promise.reject(err);
-      }
-    );
-  }, []);
+      );
+    },
+    [logOut, navigate, axiosSecure]
+  );
 
   return axiosSecure;
 };

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import useAuth from "../hooks/useAuth.js";
@@ -24,13 +25,13 @@ const Course = () => {
       return false;
     }
 
-    axiosSecure(`/${userInfo.uid}/booked-courses`).then((response) => {
+    axiosSecure(`/student/${userInfo.uid}/booked-courses`).then((response) => {
       let bookedCourses = response.data?.courses;
 
       if (!bookedCourses) bookedCourses = [];
 
       axiosSecure
-        .put(`/${userInfo.uid}/booked-courses`, {
+        .put(`/student/${userInfo.uid}/booked-courses`, {
           student_id: userInfo.uid,
           courses: [...bookedCourses, id],
         })
@@ -41,6 +42,9 @@ const Course = () => {
 
   return (
     <section className="pt-28 pb-8">
+      <Helmet>
+        <title>Course - ThinkLock</title>
+      </Helmet>
       <div className="container">
         {!isLoading ? (
           courses.data.length ? (

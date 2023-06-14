@@ -42,7 +42,7 @@ const CourseCard = ({
   useEffect(
     (_) => {
       if (!isUserLoading && user.role === "student") {
-        axiosSecure(`/${user._id}/booked-courses`).then((response) => {
+        axiosSecure(`/student/${user._id}/booked-courses`).then((response) => {
           let bookedCourses = response.data?.courses;
 
           if (bookedCourses) {

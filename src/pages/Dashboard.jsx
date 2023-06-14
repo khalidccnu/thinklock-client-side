@@ -28,7 +28,8 @@ const Dashboard = () => {
   const { data: paid, refetch: paidRefetch } = useQuery({
     queryKey: [userInfo, "paid.data"],
     enabled: !isLoading,
-    queryFn: (_) => axiosSecure(`/${userInfo.uid}/booked-courses/paid-balance`),
+    queryFn: (_) =>
+      axiosSecure(`/student/${userInfo.uid}/booked-courses/paid-balance`),
   });
 
   const handleLogout = (_) =>

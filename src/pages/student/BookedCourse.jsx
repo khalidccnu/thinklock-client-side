@@ -15,7 +15,7 @@ const BookedCourse = () => {
   const { data: courses, refetch } = useQuery({
     queryKey: [userInfo, "courses.data"],
     enabled: !loading,
-    queryFn: (_) => axiosSecure(`/${userInfo.uid}/booked-courses`),
+    queryFn: (_) => axiosSecure(`/student/${userInfo.uid}/booked-courses`),
   });
 
   useEffect(
@@ -26,7 +26,7 @@ const BookedCourse = () => {
         });
 
         axiosSecure
-          .post(`/${userInfo.uid}/booked-courses`, courses.data.courses)
+          .post(`/student/${userInfo.uid}/booked-courses`, courses.data.courses)
           .then((response) => {
             setBookedCourses(response.data);
             setLoading(false);

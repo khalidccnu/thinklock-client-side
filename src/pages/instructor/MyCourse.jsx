@@ -24,7 +24,7 @@ const MyCourse = () => {
   } = useQuery({
     queryKey: [userInfo.uid, "courses.data"],
     enabled: !loading,
-    queryFn: (_) => axiosSecure(`/${userInfo.uid}/courses`),
+    queryFn: (_) => axiosSecure(`/instructor/${userInfo.uid}/courses`),
   });
 
   useEffect(

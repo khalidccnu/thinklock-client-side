@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosIns from "../hooks/useAxiosIns.js";
 import InstructorCard from "../components/InstructorCard.jsx";
@@ -13,6 +14,9 @@ const Instructor = () => {
 
   return (
     <section className="pt-28 pb-8">
+      <Helmet>
+        <title>Instructor - ThinkLock</title>
+      </Helmet>
       <div className="container">
         {!isLoading ? (
           instructors.data.length ? (

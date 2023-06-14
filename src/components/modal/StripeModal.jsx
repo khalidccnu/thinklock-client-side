@@ -50,7 +50,7 @@ const StripeModal = ({ isSMOpen, setSMOpen, paidBalance, paidRefetch }) => {
 
         if (paymentIntent.status === "succeeded") {
           axiosSecure
-            .post(`/${userInfo.uid}/orders`, {
+            .post(`/student/${userInfo.uid}/orders`, {
               trxID: paymentIntent.id,
               ct_key: userInfo.uid,
               date: new Date(),
@@ -59,13 +59,16 @@ const StripeModal = ({ isSMOpen, setSMOpen, paidBalance, paidRefetch }) => {
               setSMOpen(false);
               toast.success("Payment has been successfully completed!");
 
-              axiosSecure(`/${userInfo.uid}/booked-courses`).then(
+              axiosSecure(`/student/${userInfo.uid}/booked-courses`).then(
                 (response) => {
                   axiosSecure
-                    .put(`/${userInfo.uid}/courses`, response.data.courses)
+                    .put(
+                      `/student/${userInfo.uid}/courses`,
+                      response.data.courses
+                    )
                     .then((_) =>
                       axiosSecure
-                        .delete(`/${userInfo.uid}/booked-courses`)
+                        .delete(`/student/${userInfo.uid}/booked-courses`)
                         .then((_) => {
                           paidRefetch();
 

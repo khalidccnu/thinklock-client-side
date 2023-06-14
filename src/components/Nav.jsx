@@ -23,8 +23,7 @@ const Nav = () => {
 
   const handleCollapseHbMenu = ({ target: elem }) => {
     innerWidth < 640
-      ? !collapseHbMenu.current.contains(elem) ||
-        elem.classList.contains("nav-link")
+      ? !collapseHbMenu.current.contains(elem)
         ? setHbMenu(true)
         : null
       : null;
@@ -155,7 +154,7 @@ const Nav = () => {
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
-                    "nav-link block px-2 py-1 rounded transition-colors duration-500 " +
+                    "block px-2 py-1 rounded transition-colors duration-500 " +
                     (isActive
                       ? "bg-pink-600 text-white"
                       : "hover:bg-pink-600 hover:text-white")
@@ -168,7 +167,7 @@ const Nav = () => {
                 <NavLink
                   to="/instructor"
                   className={({ isActive }) =>
-                    "nav-link block px-2 py-1 rounded transition-colors duration-500 " +
+                    "block px-2 py-1 rounded transition-colors duration-500 " +
                     (isActive
                       ? "bg-pink-600 text-white"
                       : "hover:bg-pink-600 hover:text-white")
@@ -181,7 +180,7 @@ const Nav = () => {
                 <NavLink
                   to="/course"
                   className={({ isActive }) =>
-                    "nav-link block px-2 py-1 rounded transition-colors duration-500 " +
+                    "block px-2 py-1 rounded transition-colors duration-500 " +
                     (isActive
                       ? "bg-pink-600 text-white"
                       : "hover:bg-pink-600 hover:text-white")
@@ -195,7 +194,7 @@ const Nav = () => {
                   <NavLink
                     to="/dashboard"
                     className={({ isActive }) =>
-                      "nav-link block px-2 py-1 rounded transition-colors duration-500 " +
+                      "block px-2 py-1 rounded transition-colors duration-500 " +
                       (isActive
                         ? "bg-pink-600 text-white"
                         : "hover:bg-pink-600 hover:text-white")

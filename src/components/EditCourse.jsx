@@ -16,7 +16,8 @@ const EditCourse = ({ courseID, refetchCourses }) => {
   const { data: course, refetch } = useQuery({
     queryKey: [userInfo.uid, "course.data"],
     enabled: !loading,
-    queryFn: (_) => axiosSecure(`/${userInfo.uid}/courses/${courseID}`),
+    queryFn: (_) =>
+      axiosSecure(`/instructor/${userInfo.uid}/courses/${courseID}`),
   });
 
   const ikSuccess = (response) => setImage(response);
@@ -40,7 +41,7 @@ const EditCourse = ({ courseID, refetchCourses }) => {
     };
 
     axiosSecure
-      .put(`/${userInfo.uid}/courses/${courseID}`, course)
+      .put(`/instructor/${userInfo.uid}/courses/${courseID}`, course)
       .then((_) => {
         toast.success("Course has been successfully updated!");
         refetch();
