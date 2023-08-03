@@ -1,4 +1,5 @@
 import React from "react";
+import { ThreeDots } from "react-loader-spinner";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 import { useQuery } from "@tanstack/react-query";
@@ -9,7 +10,7 @@ import CourseCard from "../CourseCard.jsx";
 const PopularCourses = () => {
   const axiosIns = useAxiosIns();
 
-  const { data: courses } = useQuery({
+  const { data: courses, isLoading } = useQuery({
     queryKey: ["courses.data"],
     queryFn: (_) => axiosIns(`/courses/popular`),
   });
@@ -27,31 +28,40 @@ const PopularCourses = () => {
             />
           </div>
         </div>
-        <Swiper
-          className="pb-14"
-          modules={[Pagination, Autoplay]}
-          pagination={{ clickable: true }}
-          autoplay={{ pauseOnMouseEnter: true, disableOnInteraction: false }}
-          slidesPerView="1"
-          spaceBetween="50"
-          breakpoints={{
-            640: {
-              slidesPerView: 2,
-            },
-            768: {
-              slidesPerView: 3,
-            },
-            1024: {
-              slidesPerView: 4,
-            },
-          }}
-        >
-          {courses?.data.map((course) => (
-            <SwiperSlide key={course["_id"]}>
-              <CourseCard key={course["_id"]} hidden={true} course={course} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        {!isLoading ? (
+          <Swiper
+            className="pb-14"
+            modules={[Pagination, Autoplay]}
+            pagination={{ clickable: true }}
+            autoplay={{ pauseOnMouseEnter: true, disableOnInteraction: false }}
+            slidesPerView="1"
+            spaceBetween="50"
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+              1024: {
+                slidesPerView: 4,
+              },
+            }}
+          >
+            {courses?.data.map((course) => (
+              <SwiperSlide key={course["_id"]}>
+                <CourseCard key={course["_id"]} hidden={true} course={course} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          <ThreeDots
+            height="80"
+            width="80"
+            color="rgb(219, 39, 119)"
+            wrapperClass="justify-center"
+          />
+        )}
       </div>
     </section>
   );

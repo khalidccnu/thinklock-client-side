@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { ThreeDots } from "react-loader-spinner";
 import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import useAuth from "../hooks/useAuth.js";
@@ -78,7 +79,14 @@ const Course = () => {
               <span>No course available!</span>
             </div>
           )
-        ) : null}
+        ) : (
+          <ThreeDots
+            height="80"
+            width="80"
+            color="rgb(219, 39, 119)"
+            wrapperClass="justify-center"
+          />
+        )}
       </div>
     </section>
   );

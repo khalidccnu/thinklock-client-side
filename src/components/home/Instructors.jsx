@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { ThreeDots } from "react-loader-spinner";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosIns from "../../hooks/useAxiosIns.js";
 import imgCS from "../../assets/curved-shape.svg";
 import Instructor from "./Instructor.jsx";
 
 const Instructors = () => {
+  const [isLoading, setLoading] = useState(true);
   const axiosIns = useAxiosIns();
   const [shuffleInstructors, setShuffleInstructors] = useState([]);
 
@@ -35,6 +37,7 @@ const Instructors = () => {
       if (instructors) {
         const response = handleShuffle(instructors.data);
         setShuffleInstructors(response);
+        setLoading(false);
       }
     },
     [instructors]
@@ -53,11 +56,20 @@ const Instructors = () => {
             />
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 max-w-sm sm:max-w-none mx-auto">
-          {shuffleInstructors.slice(0, 6).map((instructor) => (
-            <Instructor key={instructor._id} instructor={instructor} />
-          ))}
-        </div>
+        {!isLoading ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 max-w-sm sm:max-w-none mx-auto">
+            {shuffleInstructors.slice(0, 6).map((instructor) => (
+              <Instructor key={instructor._id} instructor={instructor} />
+            ))}
+          </div>
+        ) : (
+          <ThreeDots
+            height="80"
+            width="80"
+            color="rgb(219, 39, 119)"
+            wrapperClass="justify-center"
+          />
+        )}
       </div>
     </section>
   );
