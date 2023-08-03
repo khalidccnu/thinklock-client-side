@@ -1,12 +1,12 @@
 import React, { createContext, useEffect, useState } from "react";
 import useAxiosIns from "../hooks/useAxiosIns.js";
 import {
-  signInWithEmailAndPassword,
-  signInWithPopup,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
-  updateProfile,
+  signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { auth, googleProvider } from "../utils/firebase.config.js";
 
@@ -60,20 +60,29 @@ const AuthProvider = ({ children }) => {
   ) => {
     setLoading(true);
 
-    const user = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    ).then((userCred) =>
-      createUser(userCred.user.uid, email, name, phone, gender, role, photo)
+    return createUserWithEmailAndPassword(auth, email, password).then(
+      async (userCred) => {
+        const formData = new FormData();
+        formData.append("userImg", photo);
+
+        const userImg = await axiosIns.post(`/users/upload-ui`, formData);
+
+        await createUser(
+          userCred.user.uid,
+          email,
+          name,
+          phone,
+          gender,
+          role,
+          userImg.data.url
+        );
+
+        return updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: userImg.data.url,
+        });
+      }
     );
-
-    await updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: photo,
-    });
-
-    return user;
   };
 
   const logOut = (_) => signOut(auth);

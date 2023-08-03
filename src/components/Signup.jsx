@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { IKContext, IKUpload } from "imagekitio-react";
 import toast from "react-hot-toast";
 import { FaArrowLeft, FaInfoCircle, FaUpload } from "react-icons/fa";
 import useAuth from "../hooks/useAuth.js";
@@ -53,8 +52,6 @@ const Signup = () => {
     });
   };
 
-  const ikSuccess = (response) => setPhoto(response);
-
   const handleNextPhase = (_) => {
     const { email, password, cfPassword } = getValues();
 
@@ -89,7 +86,7 @@ const Signup = () => {
       return false;
     }
 
-    createUserWithEP(email, password, name, phone, gender, role, photo.url)
+    createUserWithEP(email, password, name, phone, gender, role, photo)
       .then((_) =>
         toast.success(
           "Your account has been created successfully! You are being redirected, please wait..."
@@ -264,31 +261,29 @@ const Signup = () => {
               <option value="student">Student</option>
             </select>
           </div>
-          <IKContext
-            publicKey={import.meta.env.VITE_IK_PL_KEY}
-            urlEndpoint={`https://ik.imagekit.io/${import.meta.env.VITE_IK_ID}`}
-            authenticationEndpoint={`${import.meta.env.VITE_API_URL}/ik`}
-          >
-            <IKUpload
+          <div>
+            <input
+              type="file"
+              name="photo"
               id="photo"
               className="hidden"
-              folder={"/thinklock/users"}
-              onSuccess={ikSuccess}
+              accept="image/*"
+              onChange={(e) => setPhoto(e.currentTarget.files[0])}
             />
             <label
               htmlFor="photo"
               className="btn btn-sm w-full h-auto py-3.5 rounded normal-case"
             >
               {photo ? (
-                photo.name.substring(0, photo.name.lastIndexOf("_"))
+                photo.name.substring(0, photo.name.lastIndexOf("."))
               ) : (
                 <>
-                  <span>Upload</span>
+                  <span>Choose Profile Photo</span>
                   <FaUpload />
                 </>
               )}
             </label>
-          </IKContext>
+          </div>
           <button
             type="submit"
             className="btn btn-sm w-full h-auto py-3.5 bg-[#e87425] hover:bg-transparent text-white hover:text-[#e87425] !border-[#e87425] rounded normal-case"

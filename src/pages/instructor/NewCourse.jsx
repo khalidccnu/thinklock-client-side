@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { IKContext, IKUpload } from "imagekitio-react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { FaUpload } from "react-icons/fa";
@@ -12,9 +11,7 @@ const NewCourse = () => {
   const [image, setImage] = useState(null);
   const { register, handleSubmit, reset } = useForm();
 
-  const ikSuccess = (response) => setImage(response);
-
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const { name, seat, price } = data;
 
     if (name === "" || seat === "" || price === "" || !image) {
@@ -25,6 +22,11 @@ const NewCourse = () => {
       return false;
     }
 
+    const formData = new FormData();
+    formData.append("courseImg", image);
+
+    const courseImg = await axiosSecure.post(`/new-course/upload-ci`, formData);
+
     const course = {
       instructor_id: userInfo.uid,
       name,
@@ -32,7 +34,7 @@ const NewCourse = () => {
       purchase: 0,
       price: +price,
       status: "pending",
-      image: image.url,
+      image: courseImg.data.url,
     };
 
     axiosSecure
@@ -95,38 +97,29 @@ const NewCourse = () => {
             />
           </div>
           <div className="col-span-full">
-            <IKContext
-              publicKey={import.meta.env.VITE_IK_PL_KEY}
-              urlEndpoint={`https://ik.imagekit.io/${
-                import.meta.env.VITE_IK_ID
-              }`}
-              authenticationEndpoint={`${import.meta.env.VITE_API_URL}/ik`}
-            >
-              <span className="label label-text pl-0 pt-0 pb-0.5 font-bold text-gray-700">
-                Image
-              </span>
-              <IKUpload
+            <div className="input input-sm input-bordered rounded bg-white text-gray-700">
+              <input
+                type="file"
+                name="image"
                 id="image"
                 className="hidden"
-                folder={"/thinklock/courses"}
-                onSuccess={ikSuccess}
+                accept="image/*"
+                onChange={(e) => setImage(e.currentTarget.files[0])}
               />
-              <div className="input input-sm input-bordered rounded bg-white text-gray-700">
-                <label
-                  className="flex justify-center px-3 py-2 leading-tight cursor-pointer space-x-1"
-                  htmlFor="image"
-                >
-                  {image ? (
-                    image.name.substring(0, image.name.lastIndexOf("_"))
-                  ) : (
-                    <>
-                      <span>Upload</span>
-                      <FaUpload />
-                    </>
-                  )}
-                </label>
-              </div>
-            </IKContext>
+              <label
+                htmlFor="image"
+                className="flex justify-center px-3 py-2 leading-tight cursor-pointer space-x-1"
+              >
+                {image ? (
+                  image.name.substring(0, image.name.lastIndexOf("."))
+                ) : (
+                  <>
+                    <span>Choose Course Photo</span>
+                    <FaUpload />
+                  </>
+                )}
+              </label>
+            </div>
           </div>
           <button
             type="submit"
