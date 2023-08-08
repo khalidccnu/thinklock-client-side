@@ -44,7 +44,7 @@ const Instructors = () => {
   );
 
   return (
-    <section className="pt-5 pb-10">
+    <section className="pt-16 pb-10">
       <div className="container">
         <div className="mb-16">
           <div className="relative w-fit mx-auto">
@@ -57,7 +57,7 @@ const Instructors = () => {
           </div>
         </div>
         {!isLoading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 max-w-sm sm:max-w-none mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
             {shuffleInstructors.slice(0, 6).map((instructor) => (
               <Instructor key={instructor._id} instructor={instructor} />
             ))}
