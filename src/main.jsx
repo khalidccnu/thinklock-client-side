@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
+import "aos/dist/aos.css";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

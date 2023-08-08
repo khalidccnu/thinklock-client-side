@@ -6,7 +6,7 @@ import imgT3 from "../../assets/testimonial/img-t3.png";
 
 const Testimonial = () => {
   return (
-    <section className="pt-5 pb-16">
+    <section className="pt-5 pb-16 overflow-x-hidden">
       <div className="container">
         <div className="mb-16">
           <div className="relative w-fit mx-auto">
@@ -19,7 +19,11 @@ const Testimonial = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 max-w-4xl mx-auto">
-          <div className="bg-white rounded-lg shadow shadow-pink-50">
+          <div
+            className="bg-white rounded-lg shadow shadow-pink-50"
+            data-aos="zoom-out-right"
+            data-aos-delay="500"
+          >
             <div className="relative">
               <img src={imgT1} className="w-full rounded-t-lg" alt="" />
               <svg
@@ -46,7 +50,11 @@ const Testimonial = () => {
               </p>
             </div>
           </div>
-          <div className="bg-white rounded-lg shadow shadow-pink-50">
+          <div
+            className="bg-white rounded-lg shadow shadow-pink-50"
+            data-aos="zoom-out-up"
+            data-aos-delay="500"
+          >
             <div className="relative">
               <img src={imgT2} className="w-full rounded-t-lg" alt="" />
               <svg
@@ -70,7 +78,11 @@ const Testimonial = () => {
               </p>
             </div>
           </div>
-          <div className="bg-white rounded-lg shadow shadow-pink-50">
+          <div
+            className="bg-white rounded-lg shadow shadow-pink-50"
+            data-aos="zoom-out-left"
+            data-aos-delay="500"
+          >
             <div className="relative">
               <img src={imgT3} className="w-full rounded-t-lg" alt="" />
               <svg

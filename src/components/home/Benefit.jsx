@@ -4,12 +4,12 @@ import imgEducation from "../../assets/education.png";
 
 const Benefit = () => {
   return (
-    <section className={`bg-gray-100 py-16`}>
+    <section className={`bg-gray-100 py-16 overflow-x-hidden`}>
       <div className="container">
         <div
           className={`flex flex-col-reverse sm:flex-row items-center max-w-4xl mx-auto sm:space-x-5`}
         >
-          <div>
+          <div data-aos="fade-right" data-aos-delay="250">
             <span className="badge badge-lg bg-pink-600 border-pink-600 text-white text-xs">
               Benefit
             </span>
@@ -48,7 +48,11 @@ const Benefit = () => {
               </div>
             </div>
           </div>
-          <figure className={`mb-5 sm:mb-0`}>
+          <figure
+            className={`mb-5 sm:mb-0`}
+            data-aos="fade-left"
+            data-aos-delay="250"
+          >
             <img src={imgEducation} alt="" className={`w-full max-w-xs`} />
           </figure>
         </div>
