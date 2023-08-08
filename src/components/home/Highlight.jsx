@@ -11,6 +11,7 @@ const Highlight = () => {
             className="bg-gray-100 px-12 py-8 border rounded-lg"
             data-aos="fade-right"
             data-aos-duration="1500"
+            data-aos-offset="60"
           >
             <div className="inline-flex justify-center items-center w-10 h-10 bg-green-600/20 text-green-700 rounded-full">
               <FaUserPlus />
@@ -21,6 +22,7 @@ const Highlight = () => {
             className="bg-gray-100 px-12 py-8 border rounded-lg"
             data-aos="zoom-in"
             data-aos-duration="1500"
+            data-aos-offset="60"
           >
             <div className="inline-flex justify-center items-center w-10 h-10 bg-red-600/20 text-red-700 rounded-full">
               <FaEdit />
@@ -31,6 +33,7 @@ const Highlight = () => {
             className="bg-gray-100 px-12 py-8 border rounded-lg"
             data-aos="fade-left"
             data-aos-duration="1500"
+            data-aos-offset="60"
           >
             <div className="inline-flex justify-center items-center w-10 h-10 bg-yellow-600/20 text-yellow-700 rounded-full">
               <FiSettings />

@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { ThreeDots } from "react-loader-spinner";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosIns from "../hooks/useAxiosIns.js";
-import InstructorCard from "../components/InstructorCard.jsx";
+import InstructorCard from "../components/home/Instructor.jsx";
 
 const Instructor = () => {
   const axiosIns = useAxiosIns();

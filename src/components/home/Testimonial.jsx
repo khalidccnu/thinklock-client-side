@@ -20,14 +20,14 @@ const Testimonial = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 max-w-4xl mx-auto">
           <div
-            className="bg-white rounded-lg shadow shadow-pink-50"
+            className="bg-gray-100 border rounded-lg shadow shadow-pink-50"
             data-aos="zoom-out-right"
-            data-aos-delay="500"
+            data-aos-delay="400"
           >
             <div className="relative">
               <img src={imgT1} className="w-full rounded-t-lg" alt="" />
               <svg
-                className="absolute left-0 -bottom-1 text-white"
+                className="absolute left-0 -bottom-1 text-gray-100"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 1440 320"
               >
@@ -51,14 +51,14 @@ const Testimonial = () => {
             </div>
           </div>
           <div
-            className="bg-white rounded-lg shadow shadow-pink-50"
+            className="bg-gray-100 border rounded-lg shadow shadow-pink-50"
             data-aos="zoom-out-up"
-            data-aos-delay="500"
+            data-aos-delay="400"
           >
             <div className="relative">
               <img src={imgT2} className="w-full rounded-t-lg" alt="" />
               <svg
-                className="absolute left-0 -bottom-1 text-white"
+                className="absolute left-0 -bottom-1 text-gray-100"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 1440 320"
               >
@@ -79,14 +79,14 @@ const Testimonial = () => {
             </div>
           </div>
           <div
-            className="bg-white rounded-lg shadow shadow-pink-50"
+            className="bg-gray-100 border rounded-lg shadow shadow-pink-50"
             data-aos="zoom-out-left"
-            data-aos-delay="500"
+            data-aos-delay="400"
           >
             <div className="relative">
               <img src={imgT3} className="w-full rounded-t-lg" alt="" />
               <svg
-                className="absolute left-0 -bottom-1 text-white"
+                className="absolute left-0 -bottom-1 text-gray-100"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 1440 320"
               >

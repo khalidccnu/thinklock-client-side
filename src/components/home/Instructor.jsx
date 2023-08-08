@@ -7,7 +7,7 @@ const Instructor = ({ instructor }) => {
   return (
     <div className="bg-white px-6 py-10 rounded-lg">
       <figure className={`w-32 h-32 rounded-full mx-auto overflow-hidden`}>
-        <img src={photo} alt="" className={`w-full`} />
+        <img src={photo} alt="" className={`w-full h-full`} />
       </figure>
       <div className="flex flex-col mt-5 text-center">
         <h2 className="font-bold">{name}</h2>

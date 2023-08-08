@@ -88,7 +88,7 @@ const Dashboard = () => {
             />
             <div className="md:sticky md:top-28">
               <figure className="w-20 h-20 rounded-full mx-auto overflow-hidden">
-                <img src={photoURL} alt="" />
+                <img src={photoURL} alt="" className={`w-full h-full`} />
               </figure>
               <h2 className="font-bold text-center mt-3">{displayName}</h2>
               {!isUserLoading &&
