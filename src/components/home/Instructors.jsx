@@ -44,7 +44,7 @@ const Instructors = () => {
   );
 
   return (
-    <section className="pt-16 pb-10">
+    <section className="py-16">
       <div className="container">
         <div className="mb-16">
           <div className="relative w-fit mx-auto">

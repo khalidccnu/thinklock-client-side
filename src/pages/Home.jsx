@@ -6,6 +6,7 @@ import Highlight from "../components/home/Highlight.jsx";
 import PopularCourses from "../components/home/PopularCourses.jsx";
 import Benefit from "../components/home/Benefit.jsx";
 import Instructors from "../components/home/Instructors.jsx";
+import Categories from "../components/home/Categories.jsx";
 import Testimonial from "../components/home/Testimonial.jsx";
 
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
       <PopularCourses />
       <Benefit />
       <Instructors />
+      <Categories />
       <Testimonial />
     </>
   );
