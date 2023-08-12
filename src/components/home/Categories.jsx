@@ -3,7 +3,7 @@ import { BiCategoryAlt } from "react-icons/bi";
 
 const Categories = () => {
   return (
-    <section className={`bg-gray-100 py-16 overflow-x-hidden`}>
+    <section className={`bg-blue-maastricht py-16 overflow-hidden`}>
       <div className="container">
         <div className={`max-w-4xl mx-auto`}>
           <div className={`flex justify-center`}>
@@ -12,7 +12,7 @@ const Categories = () => {
             </span>
           </div>
           <div
-            className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5`}
+            className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-8`}
           >
             <div
               className={`bg-white px-6 py-10 rounded-lg`}

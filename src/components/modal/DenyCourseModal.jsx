@@ -63,17 +63,17 @@ const DenyCourseModal = ({ isDCMOpen, setDCMOpen, refetch, actionCourse }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="bg-white max-w-md p-6 rounded-2xl shadow-xl transition-all">
+              <Dialog.Panel className="bg-blue-prussian max-w-md p-6 rounded-2xl shadow-xl transition-all">
                 <Dialog.Title
                   as="h3"
-                  className="text-lg text-gray-900 font-semibold leading-6"
+                  className="text-lg text-white font-semibold leading-6"
                 >
                   {!nextPhase ? "Are you sure?" : "Why are you denied?"}
                 </Dialog.Title>
                 <div className="mt-2">
                   {!nextPhase ? (
                     <>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-sm text-gray-300">
                         {actionCourse.name} will be denied!
                       </p>
                       <div className="mt-4 space-x-3">
@@ -101,7 +101,7 @@ const DenyCourseModal = ({ isDCMOpen, setDCMOpen, refetch, actionCourse }) => {
                       <textarea
                         rows="5"
                         placeholder="Write Something..."
-                        className="textarea textarea-sm textarea-bordered rounded-md focus:outline-0 resize-none"
+                        className="textarea textarea-sm textarea-bordered rounded-md focus:outline-0 resize-none bg-blue-maastricht text-white"
                         {...register("feedback", { required: true })}
                       ></textarea>
                       {errors.feedback && (

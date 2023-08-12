@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosIns from "../../hooks/useAxiosIns.js";
-import imgCS from "../../assets/curved-shape.svg";
+import imgUnderline from "../../assets/underline.png";
 import CourseCard from "../CourseCard.jsx";
 
 const PopularCourses = () => {
@@ -18,13 +18,13 @@ const PopularCourses = () => {
   return (
     <section className="pt-16 pb-10">
       <div className="container">
-        <div className="mb-16">
+        <div className="mb-16 text-white">
           <div className="relative w-fit mx-auto">
             <h3 className="font-bold text-2xl">Popular Course</h3>
             <img
-              src={imgCS}
+              src={imgUnderline}
               alt=""
-              className="absolute -top-10 -left-10 w-28 rotate-45 -z-10"
+              className="absolute left-[38%] -bottom-2 -translate-x-1/2 w-24"
             />
           </div>
         </div>

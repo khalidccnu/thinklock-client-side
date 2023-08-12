@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosIns from "../../hooks/useAxiosIns.js";
-import imgCS from "../../assets/curved-shape.svg";
+import imgUnderline from "../../assets/underline.png";
 import Instructor from "./Instructor.jsx";
 
 const Instructors = () => {
@@ -46,13 +46,13 @@ const Instructors = () => {
   return (
     <section className="py-16">
       <div className="container">
-        <div className="mb-16">
+        <div className="mb-16 text-white">
           <div className="relative w-fit mx-auto">
             <h3 className="font-bold text-2xl">Look Our Instructor</h3>
             <img
-              src={imgCS}
+              src={imgUnderline}
               alt=""
-              className="absolute -top-10 -left-10 w-28 rotate-45 -z-10"
+              className="absolute left-[38%] -bottom-2 -translate-x-1/2 w-24"
             />
           </div>
         </div>

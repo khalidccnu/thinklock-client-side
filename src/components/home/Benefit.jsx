@@ -4,7 +4,7 @@ import imgEducation from "../../assets/education.png";
 
 const Benefit = () => {
   return (
-    <section className={`bg-gray-100 py-16 overflow-x-hidden`}>
+    <section className={`bg-blue-maastricht py-16 overflow-x-hidden`}>
       <div className="container">
         <div
           className={`flex flex-col-reverse sm:flex-row items-center max-w-4xl mx-auto sm:space-x-5`}
@@ -20,7 +20,7 @@ const Benefit = () => {
                 >
                   <MdContentCopy />
                 </span>
-                <p className={`text-gray-600`}>
+                <p className={`text-white`}>
                   TA’s and presenters can be moved to the front of the class.
                 </p>
               </div>
@@ -30,7 +30,7 @@ const Benefit = () => {
                 >
                   <MdPeopleAlt />
                 </span>
-                <p className={`text-gray-600`}>
+                <p className={`text-white`}>
                   Teachers can easily see all students and class data at one
                   time.
                 </p>
@@ -41,7 +41,7 @@ const Benefit = () => {
                 >
                   <MdDashboard />
                 </span>
-                <p className={`text-gray-600`}>
+                <p className={`text-white`}>
                   Teachers don’t get lost in the grid view and have a dedicated
                   Podium space.
                 </p>

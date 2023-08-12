@@ -1,29 +1,29 @@
 import React from "react";
-import imgCS from "../../assets/curved-shape.svg";
+import imgUnderline from "../../assets/underline.png";
 import imgT1 from "../../assets/testimonial/img-t1.jpg";
 import imgT2 from "../../assets/testimonial/img-t2.jpg";
 import imgT3 from "../../assets/testimonial/img-t3.png";
 
 const Testimonial = () => {
   return (
-    <section className="py-16">
+    <section className="py-16 text-white">
       <div className="container">
         <div className="mb-16">
           <div className="relative w-fit mx-auto">
             <h3 className="font-bold text-2xl">What Our Student Say</h3>
             <img
-              src={imgCS}
+              src={imgUnderline}
               alt=""
-              className="absolute -top-10 -left-10 w-28 rotate-45 -z-10"
+              className="absolute left-[38%] -bottom-2 -translate-x-1/2 w-24"
             />
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 max-w-4xl mx-auto">
-          <div className="bg-gray-100 border rounded-lg shadow shadow-pink-50">
+          <div className="bg-blue-maastricht rounded-lg">
             <div className="relative">
               <img src={imgT1} className="w-full rounded-t-lg" alt="" />
               <svg
-                className="absolute left-0 -bottom-1 text-gray-100"
+                className="absolute left-0 -bottom-1 text-blue-maastricht"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 1440 320"
               >
@@ -46,11 +46,11 @@ const Testimonial = () => {
               </p>
             </div>
           </div>
-          <div className="bg-gray-100 border rounded-lg shadow shadow-pink-50">
+          <div className="bg-blue-maastricht rounded-lg">
             <div className="relative">
               <img src={imgT2} className="w-full rounded-t-lg" alt="" />
               <svg
-                className="absolute left-0 -bottom-1 text-gray-100"
+                className="absolute left-0 -bottom-1 text-blue-maastricht"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 1440 320"
               >
@@ -70,11 +70,11 @@ const Testimonial = () => {
               </p>
             </div>
           </div>
-          <div className="bg-gray-100 border rounded-lg shadow shadow-pink-50">
+          <div className="bg-blue-maastricht rounded-lg">
             <div className="relative">
               <img src={imgT3} className="w-full rounded-t-lg" alt="" />
               <svg
-                className="absolute left-0 -bottom-1 text-gray-100"
+                className="absolute left-0 -bottom-1 text-blue-maastricht"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 1440 320"
               >

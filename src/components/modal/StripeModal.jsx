@@ -120,15 +120,27 @@ const StripeModal = ({ isSMOpen, setSMOpen, paidBalance, paidRefetch }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="bg-white w-80 p-6 rounded-2xl shadow-xl transition-all">
+              <Dialog.Panel className="bg-blue-prussian w-80 p-6 rounded-2xl shadow-xl transition-all">
                 <Dialog.Title
                   as="h3"
-                  className="text-lg text-gray-900 font-semibold leading-6"
+                  className="text-lg text-white font-semibold leading-6"
                 >
                   Payment
                 </Dialog.Title>
                 <div className="mt-5">
-                  <CardElement />
+                  <CardElement
+                    options={{
+                      style: {
+                        base: {
+                          iconColor: "#c4f0ff",
+                          color: "#fff",
+                          "::placeholder": {
+                            color: "#c4f0ff",
+                          },
+                        },
+                      },
+                    }}
+                  />
                 </div>
                 <div className="mt-4 space-x-3">
                   <button

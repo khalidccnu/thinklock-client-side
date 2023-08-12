@@ -42,7 +42,7 @@ const Course = () => {
   };
 
   return (
-    <section className="pt-28 pb-8">
+    <section className="pt-36 pb-16">
       <Helmet>
         <title>Course - ThinkLock</title>
       </Helmet>
@@ -62,7 +62,7 @@ const Course = () => {
               <LoginFirstModal isLFMOpen={isLFMOpen} setLFMOpen={setLFMOpen} />
             </>
           ) : (
-            <div className="alert max-w-sm mx-auto">
+            <div className="alert bg-blue-maastricht text-white max-w-sm mx-auto">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

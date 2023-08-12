@@ -4,11 +4,11 @@ import { FaAddressBook, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="mt-auto bg-sky-50">
+    <footer className="mt-auto bg-green-dark-jungle text-white">
       <div className="container">
         <div className="footer py-10">
           <div>
-            <span className="footer-title">Customer Service</span>
+            <span className="footer-title opacity-80">Customer Service</span>
             <Link to="/" className="link link-hover">
               Order Status
             </Link>
@@ -20,7 +20,7 @@ const Footer = () => {
             </Link>
           </div>
           <div>
-            <span className="footer-title">Information</span>
+            <span className="footer-title opacity-80">Information</span>
             <Link to="/" className="link link-hover">
               Terms of Use
             </Link>
@@ -29,7 +29,7 @@ const Footer = () => {
             </Link>
           </div>
           <div>
-            <span className="footer-title">Contact</span>
+            <span className="footer-title opacity-80">Contact</span>
             <a
               href="tel:+13455674356"
               className="inline-flex items-center space-x-1 link link-hover"
@@ -56,7 +56,7 @@ const Footer = () => {
             </span>
           </div>
         </div>
-        <div className="footer grid-flow-col gap-4 py-4 border-t border-base-300">
+        <div className="footer grid-flow-col gap-4 py-4 border-t border-gray-600">
           <span className="font-bold">
             &copy; ThinkLock {new Date().getFullYear()}
           </span>

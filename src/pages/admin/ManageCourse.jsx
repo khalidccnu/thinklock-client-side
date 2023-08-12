@@ -58,7 +58,7 @@ const ManageCourse = () => {
         />
       </div>
     ) : (
-      <div className="alert max-w-sm mx-auto">
+      <div className="alert bg-blue-maastricht text-white max-w-sm mx-auto">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

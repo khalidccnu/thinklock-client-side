@@ -20,6 +20,7 @@
     width: 1rem;
     height: 0.2rem;
     border-radius: 0.5rem;
+    background-color: #db2777;
 }
 
 .swiper-pagination-bullet-active {

@@ -28,7 +28,7 @@ const DashboardRoot = () => {
       {anmLearning ? (
         <Lottie className="w-full" animationData={anmLearning} loop={true} />
       ) : null}
-      <h2 className="font-bold text-lg text-center">
+      <h2 className="font-bold text-lg text-white text-center">
         Good {greetings}, {userInfo.displayName}
       </h2>
     </div>

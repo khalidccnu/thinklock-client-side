@@ -80,7 +80,7 @@ const Dashboard = () => {
           <div
             className={`fixed md:static ${
               hbMenu ? "-left-96" : "left-0"
-            } top-0 w-72 md:w-auto h-full md:h-auto p-5 pt-28 md:-mt-28 md:-mb-8 bg-white z-10 transition-[left] duration-500`}
+            } top-0 w-72 md:w-auto h-full md:h-auto p-5 pt-28 md:-mt-28 md:-mb-8 bg-blue-maastricht text-white z-10 transition-[left] duration-500`}
           >
             <FaAngleLeft
               className="md:hidden text-2xl mb-5 cursor-pointer"
@@ -104,7 +104,7 @@ const Dashboard = () => {
                   </button>
                 </div>
               ) : null}
-              <ul className="flex flex-col bg-gray-100 p-5 mt-5 rounded space-y-3">
+              <ul className="flex flex-col bg-blue-prussian p-5 mt-5 rounded space-y-3">
                 {!isUserLoading ? (
                   user.role === "student" ? (
                     <StudentSidebarLinks />

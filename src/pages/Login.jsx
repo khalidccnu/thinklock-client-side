@@ -66,7 +66,7 @@ const Login = () => {
   }, []);
 
   return (
-    <section className="pt-32 pb-8">
+    <section className="pt-36 pb-16">
       <Helmet>
         {params.get("signup") === "true" ? (
           <title>Signup - ThinkLock</title>
@@ -75,7 +75,7 @@ const Login = () => {
         )}
       </Helmet>
       <div className="container">
-        <div className="artboard phone-2 max-w-full !h-auto mx-auto border border-[#e87425] rounded p-5">
+        <div className="artboard phone-2 bg-blue-maastricht text-white max-w-full !h-auto mx-auto border border-[#e87425] rounded p-5">
           <Tabs defaultIndex={params.get("signup") === "true" ? 1 : 0}>
             <TabList className="tabs tabs-boxed w-fit mx-auto mb-8">
               <Tab

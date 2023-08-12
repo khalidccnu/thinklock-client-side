@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { BiDollarCircle } from "react-icons/bi";
-import { BsBookmarkStarFill } from "react-icons/bs";
-import { RiMessage2Fill } from "react-icons/ri";
+import { BsBookmarkStarFill, BsFillInfoSquareFill } from "react-icons/bs";
 import { FaBookmark, FaEdit, FaRegBookmark, FaUser } from "react-icons/fa";
-import { GrStatusInfo } from "react-icons/gr";
+import { RiMessage2Fill } from "react-icons/ri";
 import useUser from "../hooks/useUser.js";
 import useAxiosSecure from "../hooks/useAxiosSecure.js";
 
@@ -65,7 +64,7 @@ const CourseCard = ({
       }`}
     >
       <div
-        className="relative bg-white bg-cover h-52 rounded-lg before:content-[''] before:absolute before:bottom-0 before:left-1/2 before:w-5 before:h-5 before:bg-transparent before:rounded-full before:shadow-[-10px_10px_0_#faf7f5] after:content-[''] after:absolute after:bottom-16 after:left-0 after:w-5 after:h-5 after:bg-transparent after:rounded-full after:shadow-[-10px_10px_0_#faf7f5]"
+        className="relative bg-blue-maastricht bg-cover h-52 rounded-lg before:content-[''] before:absolute before:bottom-0 before:left-1/2 before:w-5 before:h-5 before:bg-transparent before:rounded-full before:shadow-[-10px_10px_0_#1d313e] after:content-[''] after:absolute after:bottom-16 after:left-0 after:w-5 after:h-5 after:bg-transparent after:rounded-full after:shadow-[-10px_10px_0_#1d313e]"
         style={{ backgroundImage: `url("${image}")` }}
       >
         {feedback ? (
@@ -78,14 +77,14 @@ const CourseCard = ({
           />
         ) : null}
       </div>
-      <div className="relative bg-white min-h-[10rem] rounded-lg rounded-tl-none">
-        <span className="absolute -top-20 bg-white w-1/2 h-20 border-solid border-t-[1rem] border-t-[#faf7f5] border-r-[1rem] border-r-[#faf7f5] rounded-tr-[3.5rem] before:content-[''] before:absolute before:bg-transparent before:w-5 before:h-5 before:rounded-full before:shadow-[-12px_-10px_0_#faf7f5] after:content-[''] after:absolute after:-right-5 after:bottom-0 after:bg-transparent after:w-5 after:h-5 after:rounded-full after:shadow-[-10px_10px_0_#fff]">
+      <div className="relative bg-blue-maastricht min-h-[10rem] rounded-lg rounded-tl-none text-white">
+        <span className="absolute -top-20 bg-blue-maastricht w-1/2 h-20 border-solid border-t-[1rem] border-t-blue-yankees border-r-[1rem] border-r-blue-yankees rounded-tr-[3.5rem] before:content-[''] before:absolute before:bg-transparent before:w-5 before:h-5 before:rounded-full before:shadow-[-12px_-10px_0_#1d313e] after:content-[''] after:absolute after:-right-5 after:bottom-0 after:bg-transparent after:w-5 after:h-5 after:rounded-full after:shadow-[-10px_10px_0_#011e30]">
           {!hidden ? (
             !location.pathname.includes("booked-course") ? (
               !location.pathname.includes("enrolled-course") ? (
                 status ? (
                   <span className="flex justify-center items-center h-full font-bold text-xs space-x-1">
-                    <GrStatusInfo />
+                    <BsFillInfoSquareFill />
                     <span className="mt-1">{status.toUpperCase()}</span>
                   </span>
                 ) : (
@@ -98,7 +97,7 @@ const CourseCard = ({
                           user.courses !== undefined &&
                           user.courses.indexOf(id) !== -1) ||
                         purchase === seat
-                          ? "btn-disabled"
+                          ? "btn-disabled border-gray-600 text-gray-600"
                           : "text-pink-600 border-pink-600 hover:bg-pink-600 hover:border-pink-600"
                       } h-auto px-5 py-2 transition-colors duration-500 normal-case`}
                       onClick={(_) => {

@@ -230,10 +230,10 @@ const Signup = () => {
                   id="male"
                   type="radio"
                   value="male"
-                  className="radio radio-sm"
+                  className="radio radio-sm border-white checked:bg-[#e87425]"
                   {...register("gender")}
                 />
-                <label htmlFor="male" className="label label-text">
+                <label htmlFor="male" className="label label-text text-white">
                   Male
                 </label>
               </div>
@@ -242,16 +242,16 @@ const Signup = () => {
                   id="female"
                   type="radio"
                   value="female"
-                  className="radio radio-sm"
+                  className="radio radio-sm border-white checked:bg-[#e87425]"
                   {...register("gender")}
                 />
-                <label htmlFor="male" className="label label-text">
+                <label htmlFor="male" className="label label-text text-white">
                   Female
                 </label>
               </div>
             </div>
             <select
-              className="select select-sm select-bordered h-auto py-1 rounded focus:outline-0"
+              className="select select-sm select-bordered h-auto py-1 rounded focus:outline-0 bg-blue-prussian"
               {...register("role")}
             >
               <option value="" selected="selected" disabled>
@@ -272,7 +272,7 @@ const Signup = () => {
             />
             <label
               htmlFor="photo"
-              className="btn btn-sm w-full h-auto py-3.5 rounded normal-case"
+              className="btn btn-sm !bg-blue-prussian text-white w-full h-auto py-3.5 rounded normal-case hover:opacity-80"
             >
               {photo ? (
                 photo.name.substring(0, photo.name.lastIndexOf("."))

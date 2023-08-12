@@ -56,7 +56,7 @@ const NewCourse = () => {
         <div className="grid grid-cols-2 gap-3">
           <div className="col-span-full">
             <label
-              className="label label-text pl-0 pt-0 pb-0.5 font-bold text-gray-700"
+              className="label label-text pl-0 pt-0 pb-0.5 font-bold text-white"
               htmlFor="name"
             >
               Name
@@ -70,7 +70,7 @@ const NewCourse = () => {
           </div>
           <div className="col-span-full sm:col-span-1">
             <label
-              className="label label-text pl-0 pt-0 pb-0.5 font-bold text-gray-700"
+              className="label label-text pl-0 pt-0 pb-0.5 font-bold text-white"
               htmlFor="seat"
             >
               Total Seat
@@ -84,7 +84,7 @@ const NewCourse = () => {
           </div>
           <div className="col-span-full sm:col-span-1">
             <label
-              className="label label-text pl-0 pt-0 pb-0.5 font-bold text-gray-700"
+              className="label label-text pl-0 pt-0 pb-0.5 font-bold text-white"
               htmlFor="price"
             >
               Price

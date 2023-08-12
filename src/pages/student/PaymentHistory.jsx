@@ -33,9 +33,9 @@ const PaymentHistory = () => {
   return !isLoading ? (
     orders.data.length ? (
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table text-white">
           <thead>
-            <tr>
+            <tr className={`text-white`}>
               <th>#</th>
               <th>ID</th>
               <th>TrxID</th>
@@ -57,7 +57,7 @@ const PaymentHistory = () => {
         </table>
       </div>
     ) : (
-      <div className="alert max-w-sm mx-auto">
+      <div className="alert bg-blue-maastricht text-white max-w-sm mx-auto">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

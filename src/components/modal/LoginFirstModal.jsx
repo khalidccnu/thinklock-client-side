@@ -34,15 +34,15 @@ const LoginFirstModal = ({ isLFMOpen, setLFMOpen }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="bg-white max-w-md p-6 rounded-2xl shadow-xl transition-all">
+              <Dialog.Panel className="bg-blue-prussian max-w-md p-6 rounded-2xl shadow-xl transition-all">
                 <Dialog.Title
                   as="h3"
-                  className="text-lg text-gray-900 font-semibold leading-6"
+                  className="text-lg text-white font-semibold leading-6"
                 >
                   Sorry!
                 </Dialog.Title>
                 <div className="mt-2">
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-gray-300">
                     Only registered user can book this course. Please, login
                     first!
                   </p>

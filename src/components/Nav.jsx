@@ -43,7 +43,7 @@ const Nav = () => {
 
   return (
     <nav
-      className="fixed top-0 left-0 bg-sky-50 w-full py-2 z-30"
+      className="fixed top-0 left-0 bg-green-dark-jungle text-white w-full py-2 z-30"
       ref={collapseHbMenu}
     >
       <div className="relative container">
@@ -59,9 +59,7 @@ const Nav = () => {
                     to="/"
                     className={({ isActive }) =>
                       "p-2 rounded transition-colors duration-500 " +
-                      (isActive
-                        ? "bg-pink-600 text-white"
-                        : "hover:bg-pink-600 hover:text-white")
+                      (isActive ? "bg-pink-600" : "hover:bg-pink-600")
                     }
                   >
                     Home
@@ -72,9 +70,7 @@ const Nav = () => {
                     to="/instructor"
                     className={({ isActive }) =>
                       "p-2 rounded transition-colors duration-500 " +
-                      (isActive
-                        ? "bg-pink-600 text-white"
-                        : "hover:bg-pink-600 hover:text-white")
+                      (isActive ? "bg-pink-600" : "hover:bg-pink-600")
                     }
                   >
                     Instructor
@@ -85,9 +81,7 @@ const Nav = () => {
                     to="/course"
                     className={({ isActive }) =>
                       "p-2 rounded transition-colors duration-500 " +
-                      (isActive
-                        ? "bg-pink-600 text-white"
-                        : "hover:bg-pink-600 hover:text-white")
+                      (isActive ? "bg-pink-600" : "hover:bg-pink-600")
                     }
                   >
                     Course
@@ -99,9 +93,7 @@ const Nav = () => {
                       to="/dashboard"
                       className={({ isActive }) =>
                         "p-2 rounded transition-colors duration-500 " +
-                        (isActive
-                          ? "bg-pink-600 text-white"
-                          : "hover:bg-pink-600 hover:text-white")
+                        (isActive ? "bg-pink-600" : "hover:bg-pink-600")
                       }
                     >
                       Dashboard
@@ -149,15 +141,13 @@ const Nav = () => {
               hbMenu ? "-top-52 max-h-0" : "top-12 max-h-96"
             } left-0 w-full overflow-hidden transition-[max-height] duration-500`}
           >
-            <ul className="flex flex-col bg-sky-50 px-6 pt-8 pb-5 space-y-3">
+            <ul className="flex flex-col bg-green-dark-jungle px-6 pt-8 pb-5 space-y-3">
               <li>
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
                     "block px-2 py-1 rounded transition-colors duration-500 " +
-                    (isActive
-                      ? "bg-pink-600 text-white"
-                      : "hover:bg-pink-600 hover:text-white")
+                    (isActive ? "bg-pink-600" : "hover:bg-pink-600")
                   }
                 >
                   Home
@@ -168,9 +158,7 @@ const Nav = () => {
                   to="/instructor"
                   className={({ isActive }) =>
                     "block px-2 py-1 rounded transition-colors duration-500 " +
-                    (isActive
-                      ? "bg-pink-600 text-white"
-                      : "hover:bg-pink-600 hover:text-white")
+                    (isActive ? "bg-pink-600" : "hover:bg-pink-600")
                   }
                 >
                   Instructor
@@ -181,9 +169,7 @@ const Nav = () => {
                   to="/course"
                   className={({ isActive }) =>
                     "block px-2 py-1 rounded transition-colors duration-500 " +
-                    (isActive
-                      ? "bg-pink-600 text-white"
-                      : "hover:bg-pink-600 hover:text-white")
+                    (isActive ? "bg-pink-600" : "hover:bg-pink-600")
                   }
                 >
                   Course
@@ -195,9 +181,7 @@ const Nav = () => {
                     to="/dashboard"
                     className={({ isActive }) =>
                       "block px-2 py-1 rounded transition-colors duration-500 " +
-                      (isActive
-                        ? "bg-pink-600 text-white"
-                        : "hover:bg-pink-600 hover:text-white")
+                      (isActive ? "bg-pink-600" : "hover:bg-pink-600")
                     }
                   >
                     Dashboard
