@@ -8,6 +8,7 @@ import Benefit from "../components/home/Benefit.jsx";
 import Instructors from "../components/home/Instructors.jsx";
 import Categories from "../components/home/Categories.jsx";
 import Testimonial from "../components/home/Testimonial.jsx";
+import SignupRecommendation from "../components/home/SignupRecommendation.jsx";
 
 const Home = () => {
   useEffect((_) => {
@@ -26,6 +27,7 @@ const Home = () => {
       <Instructors />
       <Categories />
       <Testimonial />
+      <SignupRecommendation />
     </>
   );
 };
