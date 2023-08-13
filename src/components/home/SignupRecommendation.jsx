@@ -14,7 +14,6 @@ const SignupRecommendation = () => {
         <div
           className={`grid grid-cols-1 sm:grid-cols-2 gap-7 max-w-4xl mx-auto`}
           data-aos="fade-up"
-          data-aos-delay="150"
         >
           <div
             className={`flex flex-col-reverse lg:flex-row items-center lg:space-x-3 bg-blue-yankees rounded-lg p-6`}

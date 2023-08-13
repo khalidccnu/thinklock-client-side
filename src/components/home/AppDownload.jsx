@@ -10,14 +10,10 @@ const AppDownload = () => {
         <div
           className={`flex flex-col sm:flex-row space-y-5 sm:space-y-0 items-center justify-between max-w-4xl mx-auto`}
         >
-          <figure data-aos="fade-right" data-aos-delay="120">
+          <figure data-aos="fade-right">
             <img src={imgAppDownload} alt="" className={`w-full max-w-xs`} />
           </figure>
-          <div
-            className={`text-white space-y-3`}
-            data-aos="fade-left"
-            data-aos-delay="120"
-          >
+          <div className={`text-white space-y-3`} data-aos="fade-left">
             <div>
               <h2 className="font-bold text-2xl">
                 Learn on your mobile anytime!
