@@ -56,7 +56,7 @@ const HomeSlider = () => {
         <svg
           className="absolute bottom-0 left-0 w-full h-16 z-[1]"
           xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
           viewBox="0 24 150 28"
           preserveAspectRatio="none"
         >

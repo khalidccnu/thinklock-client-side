@@ -6,9 +6,10 @@ import Highlight from "../components/home/Highlight.jsx";
 import PopularCourses from "../components/home/PopularCourses.jsx";
 import Benefit from "../components/home/Benefit.jsx";
 import Instructors from "../components/home/Instructors.jsx";
-import Categories from "../components/home/Categories.jsx";
+import AppDownload from "../components/home/AppDownload.jsx";
 import Testimonial from "../components/home/Testimonial.jsx";
 import SignupRecommendation from "../components/home/SignupRecommendation.jsx";
+import WhyChooseThinkLock from "../components/home/WhyChooseThinkLock.jsx";
 
 const Home = () => {
   useEffect((_) => {
@@ -25,9 +26,10 @@ const Home = () => {
       <PopularCourses />
       <Benefit />
       <Instructors />
-      <Categories />
+      <AppDownload />
       <Testimonial />
       <SignupRecommendation />
+      <WhyChooseThinkLock />
     </>
   );
 };

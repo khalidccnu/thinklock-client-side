@@ -7,13 +7,17 @@ const SignupRecommendation = () => {
   const navigate = useNavigate();
 
   return (
-    <section className={`pb-16 text-white`}>
+    <section
+      className={`bg-blue-maastricht py-16 text-white overflow-y-hidden`}
+    >
       <div className="container">
         <div
           className={`grid grid-cols-1 sm:grid-cols-2 gap-7 max-w-4xl mx-auto`}
+          data-aos="fade-up"
+          data-aos-delay="150"
         >
           <div
-            className={`flex flex-col-reverse lg:flex-row items-center lg:space-x-3 bg-blue-maastricht rounded-lg p-6`}
+            className={`flex flex-col-reverse lg:flex-row items-center lg:space-x-3 bg-blue-yankees rounded-lg p-6`}
           >
             <div className={`space-y-3`}>
               <h2 className={`font-bold text-lg`}>Become An Instructor</h2>
@@ -35,7 +39,7 @@ const SignupRecommendation = () => {
             </figure>
           </div>
           <div
-            className={`flex flex-col-reverse lg:flex-row items-center lg:space-x-3 bg-blue-maastricht rounded-lg p-6`}
+            className={`flex flex-col-reverse lg:flex-row items-center lg:space-x-3 bg-blue-yankees rounded-lg p-6`}
           >
             <div className={`space-y-3`}>
               <h2 className={`font-bold text-lg`}>
