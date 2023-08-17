@@ -9,6 +9,7 @@ const HomeSlider = () => {
   return (
     <section>
       <Swiper
+        className={`relative`}
         modules={[Navigation, Autoplay]}
         navigation={true}
         autoplay={{
