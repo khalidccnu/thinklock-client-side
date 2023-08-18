@@ -44,9 +44,9 @@ const Instructors = () => {
   );
 
   return (
-    <section className="py-16">
+    <section className="py-16 overflow-y-hidden">
       <div className="container">
-        <div className="mb-16 text-white">
+        <div className="mb-16 text-white" data-aos="fade-up">
           <div className="relative w-fit mx-auto">
             <h3 className="font-bold text-2xl">Look Our Instructor</h3>
             <img

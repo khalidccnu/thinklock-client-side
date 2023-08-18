@@ -8,15 +8,15 @@ const SignupRecommendation = () => {
 
   return (
     <section
-      className={`bg-blue-maastricht py-16 text-white overflow-y-hidden`}
+      className={`bg-blue-maastricht py-16 text-white overflow-x-hidden`}
     >
       <div className="container">
         <div
           className={`grid grid-cols-1 sm:grid-cols-2 gap-7 max-w-4xl mx-auto`}
-          data-aos="fade-up"
         >
           <div
             className={`flex flex-col-reverse lg:flex-row items-center lg:space-x-3 bg-blue-yankees rounded-lg p-6`}
+            data-aos="fade-right"
           >
             <div className={`space-y-3`}>
               <h2 className={`font-bold text-lg`}>Become An Instructor</h2>
@@ -39,6 +39,7 @@ const SignupRecommendation = () => {
           </div>
           <div
             className={`flex flex-col-reverse lg:flex-row items-center lg:space-x-3 bg-blue-yankees rounded-lg p-6`}
+            data-aos="fade-left"
           >
             <div className={`space-y-3`}>
               <h2 className={`font-bold text-lg`}>

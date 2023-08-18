@@ -13,7 +13,7 @@ import WhyChooseThinkLock from "../components/home/WhyChooseThinkLock.jsx";
 
 const Home = () => {
   useEffect((_) => {
-    AOS.init({ duration: 3000 });
+    AOS.init({ offset: 30, anchorPlacement: "center-bottom", duration: 3000 });
   }, []);
 
   return (

@@ -6,9 +6,9 @@ import imgT3 from "../../assets/testimonial/img-t3.png";
 
 const Testimonial = () => {
   return (
-    <section className="py-16 text-white">
+    <section className="py-16 text-white overflow-y-hidden">
       <div className="container">
-        <div className="mb-16">
+        <div className="mb-16" data-aos="fade-up">
           <div className="relative w-fit mx-auto">
             <h3 className="font-bold text-2xl">What Our Student Say</h3>
             <img
@@ -19,7 +19,11 @@ const Testimonial = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 max-w-4xl mx-auto">
-          <div className="bg-blue-maastricht rounded-lg">
+          <div
+            className="bg-blue-maastricht rounded-lg"
+            data-aos="fade-up"
+            data-aos-offset="-60"
+          >
             <div className="relative">
               <img src={imgT1} className="w-full rounded-t-lg" alt="" />
               <svg
@@ -46,7 +50,11 @@ const Testimonial = () => {
               </p>
             </div>
           </div>
-          <div className="bg-blue-maastricht rounded-lg">
+          <div
+            className="bg-blue-maastricht rounded-lg"
+            data-aos="fade-up"
+            data-aos-offset="-60"
+          >
             <div className="relative">
               <img src={imgT2} className="w-full rounded-t-lg" alt="" />
               <svg
@@ -70,7 +78,11 @@ const Testimonial = () => {
               </p>
             </div>
           </div>
-          <div className="bg-blue-maastricht rounded-lg">
+          <div
+            className="bg-blue-maastricht rounded-lg"
+            data-aos="fade-up"
+            data-aos-offset="-60"
+          >
             <div className="relative">
               <img src={imgT3} className="w-full rounded-t-lg" alt="" />
               <svg

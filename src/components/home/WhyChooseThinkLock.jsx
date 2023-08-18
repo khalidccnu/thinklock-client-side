@@ -4,9 +4,9 @@ import imgUnderline from "../../assets/underline.png";
 
 const WhyChooseThinkLock = () => {
   return (
-    <section className="py-16 text-white">
+    <section className="py-16 text-white overflow-y-hidden">
       <div className="container">
-        <div className="mb-16">
+        <div className="mb-16" data-aos="fade-up">
           <div className="relative w-fit mx-auto">
             <h3 className="font-bold text-2xl">Why Choose ThinkLock</h3>
             <img
@@ -17,7 +17,10 @@ const WhyChooseThinkLock = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 max-w-4xl mx-auto">
-          <div className={`bg-blue-maastricht rounded-lg p-6 space-y-3`}>
+          <div
+            className={`bg-blue-maastricht rounded-lg p-6 space-y-3`}
+            data-aos="fade-up"
+          >
             <div className={`text-3xl !mb-5`}>
               <GiSkills />
             </div>
@@ -27,7 +30,10 @@ const WhyChooseThinkLock = () => {
               purpose.
             </p>
           </div>
-          <div className={`bg-blue-maastricht rounded-lg p-6 space-y-3`}>
+          <div
+            className={`bg-blue-maastricht rounded-lg p-6 space-y-3`}
+            data-aos="fade-up"
+          >
             <div className={`text-3xl !mb-5`}>
               <GiBrain />
             </div>
@@ -37,7 +43,10 @@ const WhyChooseThinkLock = () => {
               cannot reach the top of knowledge.
             </p>
           </div>
-          <div className={`bg-blue-maastricht rounded-lg p-6 space-y-3`}>
+          <div
+            className={`bg-blue-maastricht rounded-lg p-6 space-y-3`}
+            data-aos="fade-up"
+          >
             <div className={`text-3xl !mb-5`}>
               <GiNotebook />
             </div>

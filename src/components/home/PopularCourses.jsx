@@ -16,8 +16,8 @@ const PopularCourses = () => {
   });
 
   return (
-    <section className="pt-16 pb-10">
-      <div className="container">
+    <section className="pt-16 pb-10 overflow-y-hidden">
+      <div className="container" data-aos="fade-up" data-aos-offset="-120">
         <div className="mb-16 text-white">
           <div className="relative w-fit mx-auto">
             <h3 className="font-bold text-2xl">Popular Course</h3>

@@ -1,11 +1,16 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { FaEnvelope } from "react-icons/fa";
 
 const Instructor = ({ instructor }) => {
   const { email, name, photo } = instructor;
+  const location = useLocation();
 
   return (
-    <div className="bg-blue-maastricht text-white px-6 py-10 rounded-lg">
+    <div
+      className="bg-blue-maastricht text-white px-6 py-10 rounded-lg"
+      data-aos={location.pathname === "/" ? "fade-up" : ""}
+    >
       <figure className={`w-32 h-32 rounded-full mx-auto overflow-hidden`}>
         <img src={photo} alt="" className={`w-full h-full`} />
       </figure>
